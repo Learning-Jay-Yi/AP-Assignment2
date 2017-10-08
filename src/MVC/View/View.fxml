@@ -7,11 +7,10 @@
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MVC.Control.GameController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MVC.Control.GameController">
    <center>
       <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
         <tabs>
@@ -32,12 +31,12 @@
                                           </BorderPane>
                                           <BorderPane prefHeight="200.0" prefWidth="200.0">
                                              <center>
-                                                <Button fx:id="btCycling" mnemonicParsing="false" text="Cycling Game" BorderPane.alignment="CENTER" />
+                                                <Button fx:id="btCycling" mnemonicParsing="false" onAction="#btCyclingClick" text="Cycling Game" BorderPane.alignment="CENTER" />
                                              </center>
                                           </BorderPane>
                                           <BorderPane prefHeight="200.0" prefWidth="200.0">
                                              <center>
-                                                <Button fx:id="btRunning" mnemonicParsing="false" text="Running Game" BorderPane.alignment="CENTER" />
+                                                <Button fx:id="btRunning" mnemonicParsing="false" onAction="#btRunningClick" text="Running Game" BorderPane.alignment="CENTER" />
                                              </center>
                                           </BorderPane>
                                       </items>
@@ -48,11 +47,12 @@
                                  <center>
                                     <TableView fx:id="athleteTable" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                                       <columns>
-                                        <TableColumn fx:id="athleteIDCol" editable="false" prefWidth="105.0" sortable="false" text="Athlete ID" />
-                                        <TableColumn fx:id="athleteNameCol" editable="false" prefWidth="105.0" sortable="false" text="Athlete Name" />
-                                          <TableColumn fx:id="athleteAgeCol" editable="false" prefWidth="105.0" sortable="false" text="Athlete Age" />
-                                          <TableColumn fx:id="athleteTypeCol" editable="false" prefWidth="105.0" text="Athlete Type" />
-                                          <TableColumn fx:id="selectedCol" editable="true" prefWidth="90.0" sortable="false" text="Selected" />
+                                        <TableColumn fx:id="athleteIDCol" editable="false" prefWidth="100.0" sortable="false" text="Athlete ID" />
+                                        <TableColumn fx:id="athleteNameCol" editable="false" prefWidth="100.0" sortable="false" text="Athlete Name" />
+                                          <TableColumn fx:id="athleteAgeCol" editable="false" prefWidth="100.0" sortable="false" text="Athlete Age" />
+                                          <TableColumn fx:id="athleteStateCol" editable="false" prefWidth="100.0" sortable="false" text="Athlete State" />
+                                          <TableColumn fx:id="athleteTypeCol" editable="false" prefWidth="100.0" text="Athlete Type" />
+                                          <TableColumn fx:id="selectedCol" editable="true" prefWidth="100.0" sortable="false" text="Selected" />
                                       </columns>
                                     </TableView>
                                  </center>
@@ -68,15 +68,15 @@
                         </SplitPane>
                      </center>
                      <bottom>
-                        <BorderPane prefHeight="36.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+                        <BorderPane prefHeight="40.0" prefWidth="600.0" BorderPane.alignment="CENTER">
                            <left>
-                              <Button fx:id="btExit" mnemonicParsing="false" onAction="#btExitClick" text="Exit" BorderPane.alignment="CENTER" />
+                              <Button fx:id="btGameExit" mnemonicParsing="false" onAction="#btGameExitClick" prefHeight="30.0" prefWidth="55.0" text="Exit" BorderPane.alignment="CENTER" />
                            </left>
                            <right>
-                              <Button fx:id="btRun" disable="true" mnemonicParsing="false" text="Run" BorderPane.alignment="CENTER" />
+                              <Button fx:id="btRun" disable="true" mnemonicParsing="false" onAction="#btRunClick" prefHeight="30.0" prefWidth="55.0" text="Run" BorderPane.alignment="CENTER" />
                            </right>
                            <center>
-                              <Button fx:id="btReset" disable="true" mnemonicParsing="false" text="Reset" BorderPane.alignment="CENTER" />
+                              <Button fx:id="btReset" disable="true" mnemonicParsing="false" onAction="#btResetClick" prefHeight="30.0" prefWidth="55.0" text="Reset" BorderPane.alignment="CENTER" />
                            </center>
                         </BorderPane>
                      </bottom>
@@ -84,14 +84,94 @@
                </content>
             </Tab>
           <Tab fx:id="tabResult" text="Result">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-            </content>
+               <content>
+                  <BorderPane prefHeight="200.0" prefWidth="200.0">
+                     <center>
+                        <SplitPane dividerPositions="0.3" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" BorderPane.alignment="CENTER">
+                          <items>
+                              <BorderPane prefHeight="200.0" prefWidth="200.0">
+                                 <center>
+                                    <TableView fx:id="officialTable" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                                      <columns>
+                                        <TableColumn editable="false" prefWidth="90.0" sortable="false" text="Game ID" />
+                                        <TableColumn editable="false" prefWidth="90.0" sortable="false" text="Official ID" />
+                                          <TableColumn prefWidth="100.0" text="Game Type" />
+                                          <TableColumn editable="false" prefWidth="100.0" sortable="false" text="Champion ID" />
+                                          <TableColumn prefWidth="110.0" text="Second Place ID" />
+                                          <TableColumn prefWidth="110.0" text="Third Place ID" />
+                                      </columns>
+                                    </TableView>
+                                 </center>
+                              </BorderPane>
+                              <BorderPane prefHeight="200.0" prefWidth="200.0">
+                                 <center>
+                                    <TableView fx:id="athleteResultTable" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                                      <columns>
+                                        <TableColumn editable="false" prefWidth="100.0" sortable="false" text="Game ID" />
+                                        <TableColumn editable="false" prefWidth="100.0" sortable="false" text="Athlete ID" />
+                                          <TableColumn editable="false" prefWidth="100.0" sortable="false" text="Athlete Name" />
+                                          <TableColumn editable="false" prefWidth="100.0" sortable="false" text="Athlete Type" />
+                                          <TableColumn editable="false" prefWidth="180.0" sortable="false" text="Athlete Result (seconds)" />
+                                      </columns>
+                                    </TableView>
+                                 </center>
+                              </BorderPane>
+                          </items>
+                        </SplitPane>
+                     </center>
+                     <bottom>
+                        <BorderPane prefHeight="40.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+                           <left>
+                              <Button fx:id="btResultNewGame" mnemonicParsing="false" onAction="#btResultNewGameClick" prefHeight="30.0" text="New Game" BorderPane.alignment="CENTER" />
+                           </left>
+                           <right>
+                              <Button fx:id="btPlayAgain" mnemonicParsing="false" onAction="#btPlayAgainClick" prefHeight="30.0" text="Play Again" BorderPane.alignment="CENTER" />
+                           </right>
+                        </BorderPane>
+                     </bottom>
+                     <top>
+                        <Label fx:id="lbResultInfo" text="Game have unique ID and refer from one official" BorderPane.alignment="CENTER">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                     </top></BorderPane>
+               </content>
           </Tab>
           <Tab fx:id="tabScores" text="Scores">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-            </content>
+               <content>
+                  <BorderPane prefHeight="200.0" prefWidth="200.0">
+                     <center>
+                        <TableView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                          <columns>
+                              <TableColumn prefWidth="100.0" text="Athlete ID" />
+                            <TableColumn prefWidth="100.0" text="Athlete Name" />
+                            <TableColumn prefWidth="100.0" text="Athlete Age" />
+                              <TableColumn prefWidth="100.0" text="Athlete State" />
+                              <TableColumn prefWidth="100.0" text="Athlete Type" />
+                              <TableColumn prefWidth="100.0" text="Athlete's Score" />
+                          </columns>
+                        </TableView>
+                     </center>
+                     <top>
+                        <Label fx:id="lbSoresInfo" text="Athlete's scroe will increase by each game" BorderPane.alignment="CENTER">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                     </top>
+                     <bottom>
+                        <BorderPane prefHeight="40.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+                           <left>
+                              <Button fx:id="btScoreNewGame" mnemonicParsing="false" onAction="#btScoreNewGameClick" prefHeight="30.0" text="New Game" BorderPane.alignment="CENTER" />
+                           </left>
+                           <right>
+                              <Button fx:id="btQuitGame" mnemonicParsing="false" onAction="#btQuitGameClick" prefHeight="30.0" text="Quit game" BorderPane.alignment="CENTER" />
+                           </right>
+                        </BorderPane>
+                     </bottom>
+                  </BorderPane>
+               </content>
           </Tab>
         </tabs>
       </TabPane>

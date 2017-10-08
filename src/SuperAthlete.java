@@ -14,7 +14,7 @@ public class SuperAthlete extends Athlete {
 
     public SuperAthlete (String participantID, String participantName, String participantState, int participantAge) {
         super(participantID,participantName,participantState,participantAge);
-        participantAbility = "Swim, Cyclist, Run";
+        participantAbility = "Super";
     }
 
     @Override
