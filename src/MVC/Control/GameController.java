@@ -20,7 +20,9 @@ import java.util.ArrayList;
 
 import static MVC.Model.DataStructure.participantArrayList;
 
+
 public class GameController {
+    Game game;
 
     @FXML // fx:id="tabGame"
     private Tab tabGame; // Value injected by FXMLLoader
@@ -198,8 +200,13 @@ public class GameController {
 
     @FXML
     void btSwimmingClick(ActionEvent event) {
+        game.setGameType("Swimming");
+        ObservableList<Athlete> prepAthletes = athleteType(game,athleteData);
+        ObservableList<Athlete> participant = selectAthletes(prepAthletes);
 
+        enable();
     }
+
 
 
     /**
@@ -223,6 +230,7 @@ public class GameController {
         athleteTableSelectedCol.setCellValueFactory(cellData -> cellData.getValue().checkProperty());
 
         athleteTable.setItems(athleteData);
+        athleteTable.setDisable(true);
         athleteTable.setEditable(true);
     }
 
@@ -238,6 +246,41 @@ public class GameController {
         athleteData.add(new Cyclist("C06","Cyc06",25,"VIC",22));
         athleteData.add(new Cyclist("C07","Cyc07",25,"VIC",26));
         return athleteData;
+    }
+
+
+    private void enable() {
+        athleteTable.setDisable(false);
+        btRun.setDisable(false);
+        btReset.setDisable(false);
+    }
+
+    private ObservableList<Athlete> athleteType(Game game, ObservableList<Athlete> athleteData) {
+        ObservableList<Athlete> athleteType = FXCollections.observableArrayList();
+        if (game.getGameType() == "Swimming"){
+            for (Athlete a : athleteData){
+                if (a instanceof Swimmer && a instanceof SuperAthlete)
+                    athleteType.add(a);
+            }
+
+        }else if (game.getGameType() == "Cycling"){
+            for (Athlete a : athleteData){
+                if (a instanceof Cyclist && a instanceof SuperAthlete)
+                    athleteType.add(a);
+            }
+
+        }else if (game.getGameType() == "Running"){
+            for (Athlete a : athleteData){
+                if (a instanceof Runner && a instanceof SuperAthlete)
+                    athleteType.add(a);
+            }
+
+        }
+        return athleteType;
+    }
+
+    private ObservableList<Athlete> selectAthletes(ObservableList<Athlete> athletes) {
+        return null;
     }
 
 
