@@ -34,8 +34,7 @@ public class GameController {
     private Button btRunning; // Value injected by FXMLLoader
 
     @FXML // fx:id="athleteTable"
-    private TableView athleteTable;
-    // Value injected by FXMLLoader
+    private TableView athleteTable; // Value injected by FXMLLoader
 
     @FXML // fx:id="athleteIDCol"
     private TableColumn<Athlete, String> athleteIDCol; // Value injected by FXMLLoader
@@ -87,6 +86,9 @@ public class GameController {
 
     @FXML // fx:id="tabScores"
     private Tab tabScores; // Value injected by FXMLLoader
+
+    @FXML // fx:id="scoreTable"
+    private TableView<?> athleteScoreTable;
 
     @FXML // fx:id="lbSoresInfo"
     private Label lbSoresInfo; // Value injected by FXMLLoader
@@ -174,7 +176,7 @@ public class GameController {
         athleteNameCol.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
         athleteAgeCol.setCellValueFactory(cellData -> cellData.getValue().ageProperty().asObject());
         athleteStateCol.setCellValueFactory(cellData -> cellData.getValue().stateProperty());
-        athleteTypeCol.setCellValueFactory(cellData -> cellData.getValue().typeProperty());
+        athleteTypeCol.setCellValueFactory(cellData -> cellData.getValue().abilityProperty());
         selectedCol.setCellFactory(column -> new CheckBoxTableCell());
         selectedCol.setCellValueFactory(cellData -> cellData.getValue().checkProperty());
         athleteTable.setItems(getAthlete());
@@ -184,8 +186,7 @@ public class GameController {
 
     ObservableList<Athlete> getAthlete(){
         ObservableList<Athlete> athleteData = FXCollections.observableArrayList();
-        athleteData.add(new Athlete("0","Tim", 35, "VIC","swimming", 2));
-        athleteData.add(new Athlete("1", "Jane", 23, "VIC","super", 3));
+
         return athleteData;
     }
 

@@ -1,3 +1,7 @@
+package MVC.Model;
+
+import javafx.beans.property.*;
+
 /**********************************************************************************************************************
  * Author: Dario Ongsono
  * Purpose: This class is the abstract class of all participants of this system including officials
@@ -13,6 +17,8 @@ public abstract class Participant {
     private String participantState;
     private int participantAge;
 
+    private BooleanProperty checked;
+
 
 
     public Participant(String participantID, String participantName, String participantState, int participantAge){
@@ -20,6 +26,8 @@ public abstract class Participant {
         this.participantName = participantName;
         this.participantState = participantState;
         this.participantAge = participantAge;
+
+        checked = new SimpleBooleanProperty(false);
     }
 
 
@@ -56,5 +64,12 @@ public abstract class Participant {
     }
 
     public abstract String printParticipant();
+
+    public StringProperty nameProperty() { return new SimpleStringProperty(participantName);}
+    public StringProperty idProperty() { return new SimpleStringProperty(participantID);}
+    public IntegerProperty ageProperty() { return new SimpleIntegerProperty(participantAge);}
+    public StringProperty stateProperty() { return new SimpleStringProperty(participantState);}
+
+    public BooleanProperty checkProperty(){ return checked;}
 
 }

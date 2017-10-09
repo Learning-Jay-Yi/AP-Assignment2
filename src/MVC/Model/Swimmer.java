@@ -1,4 +1,4 @@
-/**********************************************************************************************************************
+package MVC.Model; /**********************************************************************************************************************
  * Author: Dario Ongsono
  * Purpose: This class responsible for the swimmer athlete and how it process its compete method
  * Create Date: 28/07/2017
@@ -6,18 +6,21 @@
  * Update Date: 04/09/2017
  **********************************************************************************************************************/
 
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+
 import java.util.Random;
 
-public class Swimmer extends Athlete{
+public class Swimmer extends Athlete {
     private String participantAbility;
     private int result; //Result of their compete method
 
-    public Swimmer (String participantID, String participantName, String participantState, int participantAge) {
-        super(participantID,participantName,participantState,participantAge);
+    public Swimmer (String participantID, String participantName,  int participantAge,String participantState, int athleteScore) {
+        super(participantID,participantName,participantAge,participantState, athleteScore);
         participantAbility = "Swim";
     }
 
-    @Override
+
     public String getParticipantAbility() {
         return participantAbility;
     }
@@ -30,4 +33,10 @@ public class Swimmer extends Athlete{
         result = random.nextInt(max - min + 1) + min;//provides a number between 100 seconds to 200 second
         return result;
     }
+    @Override
+    public String printParticipant() {
+        return participantAbility;
+    }// TODO: 9/10/2017
+    @Override
+    public StringProperty abilityProperty() {return new SimpleStringProperty(participantAbility);}
 }

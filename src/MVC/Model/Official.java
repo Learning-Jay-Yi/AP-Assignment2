@@ -1,3 +1,9 @@
+package MVC.Model;
+
+import MVC.Model.Participant;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+
 /**********************************************************************************************************************
  * Author: Dario Ongsono
  * Purpose: This is a subclass of the participant class to create the official object
@@ -13,9 +19,11 @@ public class Official extends Participant {
     }
 
     public String printParticipant() {
-        return "Official ID: " + super.getParticipantID() +
-                "\tOfficial Name: " + super.getParticipantName();
+        return "MVC.Model.Official ID: " + super.getParticipantID() +
+                "\tMVC.Model.Official Name: " + super.getParticipantName();
     }
+
+    public StringProperty officialProperty() {return new SimpleStringProperty(super.getParticipantID());}
 
 
 

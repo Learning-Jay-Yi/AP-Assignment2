@@ -1,4 +1,4 @@
-/**********************************************************************************************************************
+package MVC.Model; /**********************************************************************************************************************
  * Author: Dario Ongsono
  * Purpose: This class takes in the participant ArrayList and process result for each athlete
  * Create Date: 28/07/2017
@@ -22,7 +22,7 @@ public class ProcessResults {
     }
 
     //Method to invoke compete method of each athlete and sorting from best result to worst
-    public ArrayList processResultsArrayList(ArrayList<Athlete> participantArrayList,Game game){
+    public ArrayList processResultsArrayList(ArrayList<Athlete> participantArrayList, Game game){
         for (int i = 0; i <participantArrayList.size(); i++){
             setAthID(participantArrayList.get(i).getParticipantID());
             setAthResults(participantArrayList.get(i).compete(game.getGameType()));

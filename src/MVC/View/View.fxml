@@ -132,7 +132,7 @@
                      <top>
                         <Label fx:id="lbResultInfo" text="Game have unique ID and refer from one official" BorderPane.alignment="CENTER">
                            <font>
-                              <Font size="18.0" />
+                              <Font name="Times New Roman" size="24.0" />
                            </font>
                         </Label>
                      </top></BorderPane>
@@ -142,7 +142,7 @@
                <content>
                   <BorderPane prefHeight="200.0" prefWidth="200.0">
                      <center>
-                        <TableView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                        <TableView fx:id="scoreTable" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                           <columns>
                               <TableColumn prefWidth="100.0" text="Athlete ID" />
                             <TableColumn prefWidth="100.0" text="Athlete Name" />
@@ -156,7 +156,7 @@
                      <top>
                         <Label fx:id="lbSoresInfo" text="Athlete's scroe will increase by each game" BorderPane.alignment="CENTER">
                            <font>
-                              <Font size="24.0" />
+                              <Font name="Times New Roman" size="24.0" />
                            </font>
                         </Label>
                      </top>
