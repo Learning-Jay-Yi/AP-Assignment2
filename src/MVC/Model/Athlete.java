@@ -6,26 +6,24 @@ import javafx.collections.ObservableList;
 
 public abstract class Athlete extends Participant
 {
-
     private int athleteScore;
-
-
-
-//    private ObservableList<Athlete> athleteObservableList = FXCollections.observableList();
 
     public Athlete(String participantID, String participantName, int participantAge, String participantState, int athleteScore)
     {
         super(participantID,participantName,participantState,participantAge);
         this.athleteScore = athleteScore;
-
-
     }
 
 
+    public void setAthleteScore(int athleteScore) {
+        this.athleteScore += athleteScore;
+    }
+
+    public int getAthleteScore() {
+        return athleteScore;
+    }
 
 
-
-    public int getScore() {return athleteScore;}
 
     public abstract int compete(String gameType);
 

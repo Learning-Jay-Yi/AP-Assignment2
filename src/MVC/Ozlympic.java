@@ -1,6 +1,8 @@
 package MVC;
 
+import MVC.Control.Driver;
 import MVC.Model.Athlete;
+import MVC.Model.DataStructure;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -12,12 +14,16 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 public class Ozlympic extends Application {
-    /**
-     *  initialize table view
-     */
+
+    public static void main(String[] args) throws Exception {
+        DataStructure dataStructure = new DataStructure();
+        dataStructure.setCyclist(DataStructure.participants);
+        dataStructure.setRunner(DataStructure.participants);
+        dataStructure.setSuperAthlete(DataStructure.participants);
+        dataStructure.setSwimmer(DataStructure.participants);
+        dataStructure.setOfficial(DataStructure.participants);
 
 
-    public static void main(String[] args) {
         launch(args);
     }
 

@@ -65,6 +65,8 @@ public abstract class Participant {
 
     public abstract String printParticipant();
 
+
+
     public StringProperty nameProperty() { return new SimpleStringProperty(participantName);}
     public StringProperty idProperty() { return new SimpleStringProperty(participantID);}
     public IntegerProperty ageProperty() { return new SimpleIntegerProperty(participantAge);}

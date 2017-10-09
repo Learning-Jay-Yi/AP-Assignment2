@@ -1,4 +1,5 @@
-package MVC.Model; /**********************************************************************************************************************
+package MVC.Control;
+/**********************************************************************************************************************
  * Author: Dario Ongsono
  * Purpose: This class takes in the participant ArrayList and process result for each athlete
  * Create Date: 28/07/2017
@@ -6,8 +7,14 @@ package MVC.Model; /************************************************************
  * Update Date: 04/09/2017
  **********************************************************************************************************************/
 
+import MVC.Model.Athlete;
+import MVC.Model.ComparatorResult;
+import MVC.Model.Game;
+
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
+import java.util.Comparator;
 
 public class ProcessResults {
     private String athID;
@@ -27,8 +34,11 @@ public class ProcessResults {
             setAthID(participantArrayList.get(i).getParticipantID());
             setAthResults(participantArrayList.get(i).compete(game.getGameType()));
             ProcessResults processResults = new ProcessResults(athID,athResults);
+//
             processResultsArrayList.add(processResults);
             Collections.sort(processResultsArrayList, new ComparatorResult()); //Sort highest results to the top of the list
+//            Collections.sort(processResultsArrayList, (o1, o2) -> o1.getAthResults() - o2.getAthResults());
+
         }
         return processResultsArrayList;
     }

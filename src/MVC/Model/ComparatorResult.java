@@ -5,7 +5,7 @@ package MVC.Model; /************************************************************
  * Version: 1.28
  * Update Date: 02/09/2017
  **********************************************************************************************************************/
-import MVC.Model.ProcessResults;
+import MVC.Control.ProcessResults;
 
 import java.util.Comparator;
 

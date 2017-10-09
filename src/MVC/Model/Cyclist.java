@@ -30,10 +30,13 @@ public class Cyclist extends Athlete {
         result = random.nextInt(max - min + 1) + min;//provides a number between 100 seconds to 200 second
         return result;
     }
+
     @Override
     public String printParticipant() {
-        return participantAbility;
-    } // TODO: 9/10/2017
+        return null;
+    }
+
+    // TODO: 9/10/2017
     @Override
     public StringProperty abilityProperty(){ return new SimpleStringProperty(participantAbility);}
 

@@ -23,6 +23,11 @@ public class Official extends Participant {
                 "\tMVC.Model.Official Name: " + super.getParticipantName();
     }
 
+//    @Override
+//    public String getParticipantAbility() {
+//        return null;
+//    }
+
     public StringProperty officialProperty() {return new SimpleStringProperty(super.getParticipantID());}
 
 

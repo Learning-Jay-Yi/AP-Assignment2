@@ -4,10 +4,9 @@
 
 package MVC.Control;
 
-import MVC.Model.Athlete;
-import MVC.Model.Game;
-import MVC.Model.Official;
-import MVC.Model.Results;
+import MVC.Model.*;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -15,6 +14,11 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.CheckBoxTableCell;
+
+import java.util.ArrayList;
+
+import static MVC.Model.DataStructure.participantArrayList;
 
 public class GameController {
 
@@ -196,5 +200,48 @@ public class GameController {
     void btSwimmingClick(ActionEvent event) {
 
     }
+
+
+    /**
+     * new functions
+     *
+     */
+
+
+    // load
+    @FXML
+    public void initialize()
+    {
+        athleteTableAthleteIDCol.setCellValueFactory(cellData -> cellData.getValue().idProperty());
+        athleteTableAthleteNameCol.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
+        athleteTableAthleteAgeCol.setCellValueFactory(cellDate -> cellDate.getValue().ageProperty().asObject());
+        athleteTableAthleteStateCol.setCellValueFactory(cellDate -> cellDate.getValue().stateProperty());
+        athleteTableAthleteTypeCol.setCellValueFactory(cellData -> cellData.getValue().abilityProperty());
+
+
+        athleteTableSelectedCol.setCellFactory(column -> new CheckBoxTableCell());
+        athleteTableSelectedCol.setCellValueFactory(cellData -> cellData.getValue().checkProperty());
+
+        athleteTable.setItems(athleteData);
+        athleteTable.setEditable(true);
+    }
+
+    ObservableList<Athlete> athleteData = getAthlete(participantArrayList);
+
+    ObservableList<Athlete> getAthlete(ArrayList<Athlete> participantArrayList){
+        ObservableList<Athlete> athleteData = FXCollections.observableArrayList();
+        athleteData.add(new Cyclist("C01","Cyc01",25,"VIC",25));
+        athleteData.add(new Cyclist("C02","Cyc02",25,"VIC",36));
+        athleteData.add(new Cyclist("C03","Cyc03",25,"VIC",27));
+        athleteData.add(new Cyclist("C04","Cyc04",25,"VIC",32));
+        athleteData.add(new Cyclist("C05","Cyc05",25,"VIC",31));
+        athleteData.add(new Cyclist("C06","Cyc06",25,"VIC",22));
+        athleteData.add(new Cyclist("C07","Cyc07",25,"VIC",26));
+        return athleteData;
+    }
+
+
+
+
 
 }

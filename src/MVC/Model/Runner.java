@@ -41,6 +41,8 @@ public class Runner extends Athlete {
         this.participantAbility = participantAbility;
     }
 
+
+
     @Override
     public String printParticipant() {
         return participantAbility;

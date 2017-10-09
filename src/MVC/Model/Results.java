@@ -6,7 +6,7 @@ package MVC.Model; /************************************************************
  * Update Date: 04/09/2017
  **********************************************************************************************************************/
 
-import MVC.Model.Official;
+import MVC.Control.ProcessResults;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
