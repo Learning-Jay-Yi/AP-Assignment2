@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MVC.Control.GameController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.101" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MVC.Control.GameController">
    <center>
       <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
         <tabs>
@@ -47,12 +47,12 @@
                                  <center>
                                     <TableView fx:id="athleteTable" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                                       <columns>
-                                        <TableColumn fx:id="athleteIDCol" editable="false" prefWidth="100.0" sortable="false" text="Athlete ID" />
-                                        <TableColumn fx:id="athleteNameCol" editable="false" prefWidth="100.0" sortable="false" text="Athlete Name" />
-                                          <TableColumn fx:id="athleteAgeCol" editable="false" prefWidth="100.0" sortable="false" text="Athlete Age" />
-                                          <TableColumn fx:id="athleteStateCol" editable="false" prefWidth="100.0" sortable="false" text="Athlete State" />
-                                          <TableColumn fx:id="athleteTypeCol" editable="false" prefWidth="100.0" text="Athlete Type" />
-                                          <TableColumn fx:id="selectedCol" editable="true" prefWidth="100.0" sortable="false" text="Selected" />
+                                        <TableColumn fx:id="athleteTableAthleteIDCol" editable="false" prefWidth="100.0" sortable="false" text="Athlete ID" />
+                                        <TableColumn fx:id="athleteTableAthleteNameCol" editable="false" prefWidth="100.0" sortable="false" text="Athlete Name" />
+                                          <TableColumn fx:id="athleteTableAthleteAgeCol" editable="false" prefWidth="100.0" sortable="false" text="Athlete Age" />
+                                          <TableColumn fx:id="athleteTableAthleteStateCol" editable="false" prefWidth="100.0" sortable="false" text="Athlete State" />
+                                          <TableColumn fx:id="athleteTableAthleteTypeCol" editable="false" prefWidth="100.0" text="Athlete Type" />
+                                          <TableColumn fx:id="athleteTableSelectedCol" editable="true" prefWidth="100.0" sortable="false" text="Selected" />
                                       </columns>
                                     </TableView>
                                  </center>
@@ -93,25 +93,25 @@
                                  <center>
                                     <TableView fx:id="officialTable" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                                       <columns>
-                                        <TableColumn editable="false" prefWidth="90.0" sortable="false" text="Game ID" />
-                                        <TableColumn editable="false" prefWidth="90.0" sortable="false" text="Official ID" />
-                                          <TableColumn prefWidth="100.0" text="Game Type" />
-                                          <TableColumn editable="false" prefWidth="100.0" sortable="false" text="Champion ID" />
-                                          <TableColumn prefWidth="110.0" text="Second Place ID" />
-                                          <TableColumn prefWidth="110.0" text="Third Place ID" />
+                                        <TableColumn fx:id="officialTableGameIDCol" editable="false" prefWidth="90.0" sortable="false" text="Game ID" />
+                                        <TableColumn fx:id="officialTableOfficialIDCol" editable="false" prefWidth="90.0" sortable="false" text="Official ID" />
+                                          <TableColumn fx:id="officialTableGameTypeCol" prefWidth="100.0" text="Game Type" />
+                                          <TableColumn fx:id="officialTableFirstPlaceCol" editable="false" prefWidth="100.0" sortable="false" text="Champion ID" />
+                                          <TableColumn fx:id="officialTableSecondPlaceCol" prefWidth="110.0" text="Second Place ID" />
+                                          <TableColumn fx:id="officialTableThirdPlaceCol" prefWidth="110.0" text="Third Place ID" />
                                       </columns>
                                     </TableView>
                                  </center>
                               </BorderPane>
                               <BorderPane prefHeight="200.0" prefWidth="200.0">
                                  <center>
-                                    <TableView fx:id="athleteResultTable" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                                    <TableView fx:id="resultTable" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                                       <columns>
-                                        <TableColumn editable="false" prefWidth="100.0" sortable="false" text="Game ID" />
-                                        <TableColumn editable="false" prefWidth="100.0" sortable="false" text="Athlete ID" />
-                                          <TableColumn editable="false" prefWidth="100.0" sortable="false" text="Athlete Name" />
-                                          <TableColumn editable="false" prefWidth="100.0" sortable="false" text="Athlete Type" />
-                                          <TableColumn editable="false" prefWidth="180.0" sortable="false" text="Athlete Result (seconds)" />
+                                        <TableColumn fx:id="resultTableGameIDCol" editable="false" prefWidth="100.0" sortable="false" text="Game ID" />
+                                        <TableColumn fx:id="resultTableAthleteIDCol" editable="false" prefWidth="100.0" sortable="false" text="Athlete ID" />
+                                          <TableColumn fx:id="resultTableAthleteNameCol" editable="false" prefWidth="100.0" sortable="false" text="Athlete Name" />
+                                          <TableColumn fx:id="resultTableAthleteTypeCol" editable="false" prefWidth="100.0" sortable="false" text="Athlete Type" />
+                                          <TableColumn fx:id="resultTableAthleteResultCol" editable="false" prefWidth="180.0" sortable="false" text="Athlete Result (seconds)" />
                                       </columns>
                                     </TableView>
                                  </center>
@@ -132,7 +132,7 @@
                      <top>
                         <Label fx:id="lbResultInfo" text="Game have unique ID and refer from one official" BorderPane.alignment="CENTER">
                            <font>
-                              <Font size="18.0" />
+                              <Font name="Times New Roman" size="24.0" />
                            </font>
                         </Label>
                      </top></BorderPane>
@@ -142,21 +142,21 @@
                <content>
                   <BorderPane prefHeight="200.0" prefWidth="200.0">
                      <center>
-                        <TableView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                        <TableView fx:id="scoreTable" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                           <columns>
-                              <TableColumn prefWidth="100.0" text="Athlete ID" />
-                            <TableColumn prefWidth="100.0" text="Athlete Name" />
-                            <TableColumn prefWidth="100.0" text="Athlete Age" />
-                              <TableColumn prefWidth="100.0" text="Athlete State" />
-                              <TableColumn prefWidth="100.0" text="Athlete Type" />
-                              <TableColumn prefWidth="100.0" text="Athlete's Score" />
+                              <TableColumn fx:id="scoreTableAthleteIDCol" prefWidth="100.0" text="Athlete ID" />
+                            <TableColumn fx:id="scoreTableAthleteNameCol" prefWidth="100.0" text="Athlete Name" />
+                            <TableColumn fx:id="scoreTableAthleteAgeCol" prefWidth="100.0" text="Athlete Age" />
+                              <TableColumn fx:id="scoreTableAthleteStateCol" prefWidth="100.0" text="Athlete State" />
+                              <TableColumn fx:id="scoreTableAthleteTypeCol" prefWidth="100.0" text="Athlete Type" />
+                              <TableColumn fx:id="scoreTableAthleteScoreCol" prefWidth="100.0" text="Athlete's Score" />
                           </columns>
                         </TableView>
                      </center>
                      <top>
                         <Label fx:id="lbSoresInfo" text="Athlete's scroe will increase by each game" BorderPane.alignment="CENTER">
                            <font>
-                              <Font size="24.0" />
+                              <Font name="Times New Roman" size="24.0" />
                            </font>
                         </Label>
                      </top>

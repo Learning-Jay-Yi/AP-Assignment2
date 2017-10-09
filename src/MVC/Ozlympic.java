@@ -11,7 +11,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
-public class RootView extends Application {
+public class Ozlympic extends Application {
     /**
      *  initialize table view
      */
