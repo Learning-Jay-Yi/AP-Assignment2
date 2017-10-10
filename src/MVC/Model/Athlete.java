@@ -31,7 +31,7 @@ public abstract class Athlete extends Participant
     public abstract StringProperty abilityProperty();
 
     public String toStringSave() {
-        return getParticipantID() + getParticipantName() + getParticipantState() + getParticipantAge() + athleteScore;
+        return getParticipantID() + " " + getParticipantName() + " " + getParticipantState() + " " +  getParticipantAge() + " " + athleteScore;
     }
 
 }
