@@ -18,11 +18,12 @@ import javafx.scene.control.cell.CheckBoxTableCell;
 
 import java.util.ArrayList;
 
-import static MVC.Model.DataStructure.participantArrayList;
-
 
 public class GameController {
     Game game;
+//    Driver driver;
+//    GameProcess gameProcess;
+    DataStructure dataStructure;
 
     @FXML // fx:id="tabGame"
     private Tab tabGame; // Value injected by FXMLLoader
@@ -202,7 +203,7 @@ public class GameController {
     void btSwimmingClick(ActionEvent event) {
         game.setGameType("Swimming");
         ObservableList<Athlete> prepAthletes = athleteType(game,athleteData);
-        ObservableList<Athlete> participant = selectAthletes(prepAthletes);
+        ObservableList<Athlete> participant = selectedAthletes(prepAthletes);
 
         enable();
     }
@@ -213,6 +214,9 @@ public class GameController {
      * new functions
      *
      */
+
+
+
 
 
     // load
@@ -229,24 +233,26 @@ public class GameController {
         athleteTableSelectedCol.setCellFactory(column -> new CheckBoxTableCell());
         athleteTableSelectedCol.setCellValueFactory(cellData -> cellData.getValue().checkProperty());
 
+
+
         athleteTable.setItems(athleteData);
         athleteTable.setDisable(true);
         athleteTable.setEditable(true);
+
     }
 
-    ObservableList<Athlete> athleteData = getAthlete(participantArrayList);
+    private ObservableList<Athlete> athleteData = getAthlete(DataStructure.getAthleteArrayList());
 
-    ObservableList<Athlete> getAthlete(ArrayList<Athlete> participantArrayList){
+
+
+    public ObservableList<Athlete> getAthlete(ArrayList<Athlete> athleteArrayList){
+
         ObservableList<Athlete> athleteData = FXCollections.observableArrayList();
-        athleteData.add(new Cyclist("C01","Cyc01",25,"VIC",25));
-        athleteData.add(new Cyclist("C02","Cyc02",25,"VIC",36));
-        athleteData.add(new Cyclist("C03","Cyc03",25,"VIC",27));
-        athleteData.add(new Cyclist("C04","Cyc04",25,"VIC",32));
-        athleteData.add(new Cyclist("C05","Cyc05",25,"VIC",31));
-        athleteData.add(new Cyclist("C06","Cyc06",25,"VIC",22));
-        athleteData.add(new Cyclist("C07","Cyc07",25,"VIC",26));
+        for (Athlete a : athleteArrayList)
+            athleteData.add(a);
         return athleteData;
     }
+
 
 
     private void enable() {
@@ -255,7 +261,13 @@ public class GameController {
         btReset.setDisable(false);
     }
 
-    private ObservableList<Athlete> athleteType(Game game, ObservableList<Athlete> athleteData) {
+
+
+    /**
+     *
+     * @return return suitable athletes to controller
+     */
+    public ObservableList<Athlete> athleteType(Game game, ObservableList<Athlete> athleteData) {
         ObservableList<Athlete> athleteType = FXCollections.observableArrayList();
         if (game.getGameType() == "Swimming"){
             for (Athlete a : athleteData){
@@ -279,10 +291,14 @@ public class GameController {
         return athleteType;
     }
 
-    private ObservableList<Athlete> selectAthletes(ObservableList<Athlete> athletes) {
+
+    /**
+     * selected athletes
+     */
+    public ObservableList<Athlete> selectedAthletes(ObservableList<Athlete> athletes) {
+
         return null;
     }
-
 
 
 

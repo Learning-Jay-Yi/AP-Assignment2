@@ -1,6 +1,6 @@
 package MVC;
 
-import MVC.Control.Driver;
+//import MVC.Control.Driver;
 import MVC.Model.Athlete;
 import MVC.Model.DataStructure;
 import javafx.application.Application;
@@ -15,20 +15,15 @@ import javafx.stage.Stage;
 
 public class Ozlympic extends Application {
 
-    public static void main(String[] args) throws Exception {
-        DataStructure dataStructure = new DataStructure();
-        dataStructure.setCyclist(DataStructure.participants);
-        dataStructure.setRunner(DataStructure.participants);
-        dataStructure.setSuperAthlete(DataStructure.participants);
-        dataStructure.setSwimmer(DataStructure.participants);
-        dataStructure.setOfficial(DataStructure.participants);
-
-
+    public static void main(String[] args) {
+//        DataStructure dataStructure = new DataStructure();
+        DataStructure.addAthletes();
         launch(args);
     }
 
     @Override
     public void start(Stage primaryStage) {
+
         primaryStage.setTitle("Ozlympic Game");
 
         try
