@@ -53,8 +53,12 @@ public class DataStructure {
         return athleteArrayList;
     }
 
-    public static ArrayList<Official> getOfficalArrayList(){
+    public static ArrayList<Official> getOfficialArrayList(){
         return officialArrayList;
+    }
+
+    public static ArrayList<Game> getGameArrayList() {
+        return gameArrayList;
     }
 
     public static ArrayList<Results> getResultArrayList(){
@@ -71,18 +75,20 @@ public class DataStructure {
     }
 
 
-    public static void loadGame() throws IOException { //method to load all saved data
+    public static void loadfiles() throws IOException { //method to load all saved data
         loadResultData();
         loadAthleteData();
         loadOfficialData();
-        System.out.println("Game loaded successfully ");
+        loadGame();
+        System.out.println("Data loaded successfully ");
     }
 
-    public static void saveGame() throws IOException { //method to call all save methods
+    public static void savefiles() throws IOException { //method to call all save methods
         saveResultData();
         saveAthleteData();
         saveOfficialData();
-        System.out.println("Game saved successfully!");
+        saveGame();
+        System.out.println("Data saved successfully!");
     }
 
 
@@ -132,8 +138,25 @@ public class DataStructure {
             FileWriter fw = new FileWriter("Official.txt");
             BufferedWriter output = new BufferedWriter(fw);
 
-            for (int i = 0; i < DataStructure.getOfficalArrayList().size(); i++) { //Save everything from Official arraylist
-                output.write(DataStructure.getOfficalArrayList().get(i).toString());
+            for (int i = 0; i < DataStructure.getOfficialArrayList().size(); i++) { //Save everything from Official arraylist
+                output.write(DataStructure.getOfficialArrayList().get(i).toString());
+                output.newLine();// goes to new line after each entry
+            }
+            output.close();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "I cannot create that file");
+        }
+
+    }
+
+    public static void saveGame() throws IOException {
+        try {
+
+            FileWriter fw = new FileWriter("Games.txt");
+            BufferedWriter output = new BufferedWriter(fw);
+
+            for (int i = 0; i < DataStructure.getGameArrayList().size(); i++) { //Save everything from Official arraylist
+                output.write(DataStructure.getGameArrayList().get(i).toString());
                 output.newLine();// goes to new line after each entry
             }
 
@@ -157,7 +180,21 @@ public class DataStructure {
             int age = sc.nextInt();
 
 
-            DataStructure.getOfficalArrayList().add(new Official(ID,name,age,state));
+            DataStructure.getOfficialArrayList().add(new Official(ID,name,age,state));
+
+        }
+        sc.close();
+    }
+
+    public static void loadGame() throws FileNotFoundException { //load game result data back to results arraylist
+        File f = new File("Games.txt");
+        Scanner sc = new Scanner(f);
+
+        while (sc.hasNext()){ //while the file still has next line
+            String ID = sc.next();
+            String type = sc.next();
+
+            DataStructure.getGameArrayList().add(new Game(ID,type));
 
         }
         sc.close();
@@ -237,15 +274,19 @@ public class DataStructure {
      */
 
     public static void initialize() throws IOException{
-    try {
-        loadAthleteData();
-        loadOfficialData();
-        loadResultData();
-    } catch(IOException ioe) {
-       addAthletes();
-       setOfficial(officialArrayList);
-
+        try {
+            System.out.println("Find files, load data from files.");
+            loadfiles();
+        } catch(IOException ioe) {
+            System.out.println("Don't find files, load data from data Structure.");
+            addAthletes();
+            setOfficial();
+            setGame();
+        }
     }
+
+    private static void setGame() {
+        gameArrayList.add(new Game("G00",null));
     }
 
     public static void addAthletes(){
@@ -290,7 +331,7 @@ public class DataStructure {
 
 
 
-    public static void setOfficial(ArrayList officialArrayList){
+    public static void setOfficial(){
         Official official1 = new Official("OF01","Official01",50,"VIC");
         Official official2 = new Official("OF02","Official02",52,"VIC");
         Official official3 = new Official("OF03","Official03",54, "VIC");
@@ -303,70 +344,6 @@ public class DataStructure {
 
     }
 
-//    public static void setCyclist(ArrayList athleteArrayList){
-//        Athlete cyclist1 = new Cyclist("C01","Cyc01",25,"VIC",25);
-//        Athlete cyclist2 = new Cyclist("C02","Cyc02",25,"VIC",36);
-//        Athlete cyclist3 = new Cyclist("C03","Cyc03",25,"VIC",27);
-//        Athlete cyclist4 = new Cyclist("C04","Cyc04",25,"VIC",32);
-//        Athlete cyclist5 = new Cyclist("C05","Cyc05",25,"VIC",31);
-//        Athlete cyclist6 = new Cyclist("C06","Cyc06",25,"VIC",22);
-//        Athlete cyclist7 = new Cyclist("C07","Cyc07",25,"VIC",26);
-//        athleteArrayList.add(cyclist1);
-//        athleteArrayList.add(cyclist2);
-//        athleteArrayList.add(cyclist3);
-//        athleteArrayList.add(cyclist4);
-//        athleteArrayList.add(cyclist5);
-//        athleteArrayList.add(cyclist6);
-//        athleteArrayList.add(cyclist7);
-//
-//    }
-
-//    public static void setRunner(ArrayList athleteArrayList){
-//        Athlete runner1 = new Runner("R01","Run01",25,"VIC",24);
-//        Athlete runner2 = new Runner("R02","Run02",35,"VIC",25);
-//        Athlete runner3 = new Runner("R03","Run03",35,"VIC",27);
-//        Athlete runner4 = new Runner("R04","Run04",35,"VIC",31);
-//        Athlete runner5 = new Runner("R05","Run05",35,"VIC",33);
-//        Athlete runner6 = new Runner("R06","Run06",35,"VIC",32);
-//        Athlete runner7 = new Runner("R07","Run07",35,"VIC",29);
-//        athleteArrayList.add(runner1);
-//        athleteArrayList.add(runner2);
-//        athleteArrayList.add(runner3);
-//        athleteArrayList.add(runner4);
-//        athleteArrayList.add(runner5);
-//        athleteArrayList.add(runner6);
-//        athleteArrayList.add(runner7);
-
-//    }
-
-//    public static void setSwimmer(ArrayList athleteArrayList){
-//        Athlete swimmer1 = new Swimmer("S01","Swim01",21,"VIC",23);
-//        Athlete swimmer2 = new Swimmer("S02","Swim02",21,"VIC",25);
-//        Athlete swimmer3 = new Swimmer("S03","Swim03",21,"VIC",28);
-//        Athlete swimmer4 = new Swimmer("S04","Swim04",21,"VIC",35);
-//        Athlete swimmer5 = new Swimmer("S05","Swim05",21,"VIC",25);
-//        Athlete swimmer6 = new Swimmer("S06","Swim06",21,"VIC",27);
-//        Athlete swimmer7 = new Swimmer("S07","Swim07",21,"VIC",26);
-//        athleteArrayList.add(swimmer1);
-//        athleteArrayList.add(swimmer2);
-//        athleteArrayList.add(swimmer3);
-//        athleteArrayList.add(swimmer4);
-//        athleteArrayList.add(swimmer5);
-//        athleteArrayList.add(swimmer6);
-//        athleteArrayList.add(swimmer7);
-//
-//    }
-
-//    public static void setSuperAthlete(ArrayList athleteArrayList){
-//        Athlete superAthlete1 = new SuperAthlete("SA01","Sup01",22,"VIC",33);
-//        Athlete superAthlete2 = new SuperAthlete("SA02","Sup02",22,"VIC",31);
-//        Athlete superAthlete3 = new SuperAthlete("SA03","Sup03",22,"VIC",32);
-//        Athlete superAthlete4 = new SuperAthlete("SA04","Sup04",22,"VIC",34);
-//        athleteArrayList.add(superAthlete1);
-//        athleteArrayList.add(superAthlete2);
-//        athleteArrayList.add(superAthlete3);
-//        athleteArrayList.add(superAthlete4);
-//    }
 
 
 

@@ -15,6 +15,7 @@ import javafx.scene.control.Tab;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.CheckBoxTableCell;
+import javafx.stage.Stage;
 
 import javax.swing.*;
 import java.io.*;
@@ -166,8 +167,10 @@ public class GameController {
     }
 
     @FXML
-    void btGameExitClick(ActionEvent event) {
-
+    void btGameExitClick(ActionEvent event) throws IOException {
+        DataStructure.savefiles();
+        Stage stage = (Stage) btGameExit.getScene().getWindow();
+        stage.close();
     }
 
     @FXML
@@ -211,7 +214,7 @@ public class GameController {
 //        gameID = games.get(gameIndex-1).getGameID() + 1;
         gameType = "Swimming";
         // set athlete type
-        athleteType(gameType,athleteData);
+        athleteType(gameType);
         System.out.println(athleteType.size());
         displayAthlete();
         ObservableList<Athlete> participant = selectedAthletes(athleteType);
@@ -292,15 +295,7 @@ public class GameController {
     private ObservableList<Game> getGame(ArrayList<Game> gameArrayList) {
         int size = gameArrayList.size();
         ObservableList<Game> gameData = FXCollections.observableArrayList();
-        if (gameArrayList != null){
-            gameID = gameArrayList.get(size-1).getGameID();
-            for (Game g : gameArrayList)
-                gameData.add(g);
-        }else {
-            gameID = "G00";
-            gameType = null;
-            gameData.add(new Game(gameID,gameType));
-        }
+
         return gameData;
     }
 
@@ -310,7 +305,7 @@ public class GameController {
         return null;
     }
 
-    private ObservableList<Results> results = geResult(DataStructure.getResultsArrayList());
+    private ObservableList<Results> results = geResult(DataStructure.getResultArrayList());
 
     private ObservableList<Results> geResult(ArrayList<Results> resultsArrayList) {
         return null;
@@ -335,7 +330,7 @@ public class GameController {
 
     ObservableList<Athlete> athleteType = FXCollections.observableArrayList();
 
-    public ObservableList<Athlete> athleteType(String gameType, ObservableList<Athlete> athleteData) {
+    public ObservableList<Athlete> athleteType(String gameType) {
 
         if (gameType == "Swimming"){
             for (Athlete a : athleteData){

@@ -24,7 +24,7 @@ public class Ozlympic extends Application {
     public static void main(String[] args) throws IOException {
 //        DataStructure dataStructure = new DataStructure();
         DataStructure.initialize();
-        DataStructure.saveGame();
+//        DataStructure.saveGame();
         launch(args);
     }
 
