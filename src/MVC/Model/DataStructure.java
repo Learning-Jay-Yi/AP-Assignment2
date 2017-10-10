@@ -8,11 +8,11 @@ import java.util.ArrayList;
 
 public class DataStructure {
 
-    private ArrayList<Results> resultsArrayList = new ArrayList<>();
+    private static ArrayList<Results> resultsArrayList = new ArrayList<>();
     private static ArrayList<Athlete> athleteArrayList = new ArrayList<>();
-    private ArrayList<Official> officialArrayList = new ArrayList<>();
-    private ArrayList<ProcessResults> processResultsArrayList = new ArrayList<>();
-    private ArrayList<Game> gameArrayList = new ArrayList<>();
+    private static ArrayList<Official> officialArrayList = new ArrayList<>();
+    private static ArrayList<ProcessResults> processResultsArrayList = new ArrayList<>();
+    private static ArrayList<Game> gameArrayList = new ArrayList<>();
 
 //    private ObservableList <Athlete> athleteObservableList = initialize(athleteArrayList);
 
@@ -45,6 +45,24 @@ public class DataStructure {
         return athleteArrayList;
     }
 
+    public static ArrayList<Game> getGameArrayList() {
+        return gameArrayList;
+    }
+
+    public static ArrayList<Official> getOfficialArrayList() {
+        return officialArrayList;
+    }
+
+    public static ArrayList<ProcessResults> getProcessResultsArrayList() {
+        return processResultsArrayList;
+    }
+
+    public static ArrayList<Results> getResultsArrayList() {
+        return resultsArrayList;
+    }
+
+
+
     private ObservableList<Athlete> initialize(ArrayList<Athlete> athleteArrayList) {
         ObservableList <Athlete> athletes = FXCollections.observableArrayList();
 //        if (athleteObservableList == null){
@@ -72,6 +90,15 @@ public class DataStructure {
      * @return
      */
 
+    public static void initialize(){
+        addAthletes();
+        setOfficial();
+        setGame();
+
+
+
+
+    }
 
 
     public static void addAthletes(){
@@ -111,12 +138,14 @@ public class DataStructure {
 
 
 
+    public static void setGame(){
+        gameArrayList.add(new Game("G00",null));
+    }
 
 
 
 
-
-    public static void setOfficial(ArrayList officialArrayList){
+    public static void setOfficial(){
         Official official1 = new Official("OF01","Official01","VIC",50);
         Official official2 = new Official("OF02","Official02","VIC",52);
         Official official3 = new Official("OF03","Official03","VIC",54);
@@ -128,6 +157,8 @@ public class DataStructure {
 
 
     }
+
+
 
 //    public static void setCyclist(ArrayList athleteArrayList){
 //        Athlete cyclist1 = new Cyclist("C01","Cyc01",25,"VIC",25);

@@ -25,6 +25,9 @@ public class GameController {
 //    GameProcess gameProcess;
     DataStructure dataStructure;
 
+    String gameID = "";
+    String gameType = "";
+
     @FXML // fx:id="tabGame"
     private Tab tabGame; // Value injected by FXMLLoader
 
@@ -201,9 +204,14 @@ public class GameController {
 
     @FXML
     void btSwimmingClick(ActionEvent event) {
-        game.setGameType("Swimming");
-        ObservableList<Athlete> prepAthletes = athleteType(game,athleteData);
-        ObservableList<Athlete> participant = selectedAthletes(prepAthletes);
+//        int gameIndex = games.size();
+//        gameID = games.get(gameIndex-1).getGameID() + 1;
+        gameType = "Swimming";
+        // set athlete type
+        athleteType(gameType,athleteData);
+        System.out.println(athleteType.size());
+        displayAthlete();
+        ObservableList<Athlete> participant = selectedAthletes(athleteType);
 
         enable();
     }
@@ -237,13 +245,37 @@ public class GameController {
 
         athleteTable.setItems(athleteData);
         athleteTable.setDisable(true);
-        athleteTable.setEditable(true);
+//        athleteTable.setEditable(true);
 
     }
 
+    /**
+     * new function to load data to table
+//     * @param prepAthletes
+     */
+    public void displayAthlete() {
+        athleteTableAthleteIDCol.setCellValueFactory(cellData -> cellData.getValue().idProperty());
+        athleteTableAthleteNameCol.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
+        athleteTableAthleteAgeCol.setCellValueFactory(cellDate -> cellDate.getValue().ageProperty().asObject());
+        athleteTableAthleteStateCol.setCellValueFactory(cellDate -> cellDate.getValue().stateProperty());
+        athleteTableAthleteTypeCol.setCellValueFactory(cellData -> cellData.getValue().abilityProperty());
+
+
+        athleteTableSelectedCol.setCellFactory(column -> new CheckBoxTableCell());
+        athleteTableSelectedCol.setCellValueFactory(cellData -> cellData.getValue().checkProperty());
+
+
+
+        athleteTable.setItems(athleteType);
+        athleteTable.setDisable(false);
+
+    }
+
+    /**
+     * data part
+     */
     private ObservableList<Athlete> athleteData = getAthlete(DataStructure.getAthleteArrayList());
-
-
+//    private ObservableList<Athlete> prepAthletes;
 
     public ObservableList<Athlete> getAthlete(ArrayList<Athlete> athleteArrayList){
 
@@ -252,6 +284,36 @@ public class GameController {
             athleteData.add(a);
         return athleteData;
     }
+    private ObservableList<Game> games = getGame(DataStructure.getGameArrayList());
+
+    private ObservableList<Game> getGame(ArrayList<Game> gameArrayList) {
+        int size = gameArrayList.size();
+        ObservableList<Game> gameData = FXCollections.observableArrayList();
+        if (gameArrayList != null){
+            gameID = gameArrayList.get(size-1).getGameID();
+            for (Game g : gameArrayList)
+                gameData.add(g);
+        }else {
+            gameID = "G00";
+            gameType = null;
+            gameData.add(new Game(gameID,gameType));
+        }
+        return gameData;
+    }
+
+    private ObservableList<Official> officials = getOfficial(DataStructure.getOfficialArrayList());
+
+    private ObservableList<Official> getOfficial(ArrayList<Official> officialArrayList) {
+        return null;
+    }
+
+    private ObservableList<Results> results = geResult(DataStructure.getResultsArrayList());
+
+    private ObservableList<Results> geResult(ArrayList<Results> resultsArrayList) {
+        return null;
+    }
+
+
 
 
 
@@ -267,21 +329,24 @@ public class GameController {
      *
      * @return return suitable athletes to controller
      */
-    public ObservableList<Athlete> athleteType(Game game, ObservableList<Athlete> athleteData) {
-        ObservableList<Athlete> athleteType = FXCollections.observableArrayList();
-        if (game.getGameType() == "Swimming"){
+
+    ObservableList<Athlete> athleteType = FXCollections.observableArrayList();
+
+    public ObservableList<Athlete> athleteType(String gameType, ObservableList<Athlete> athleteData) {
+
+        if (gameType == "Swimming"){
             for (Athlete a : athleteData){
                 if (a instanceof Swimmer && a instanceof SuperAthlete)
                     athleteType.add(a);
             }
 
-        }else if (game.getGameType() == "Cycling"){
+        }else if (gameType == "Cycling"){
             for (Athlete a : athleteData){
                 if (a instanceof Cyclist && a instanceof SuperAthlete)
                     athleteType.add(a);
             }
 
-        }else if (game.getGameType() == "Running"){
+        }else if (gameType == "Running"){
             for (Athlete a : athleteData){
                 if (a instanceof Runner && a instanceof SuperAthlete)
                     athleteType.add(a);
@@ -296,9 +361,19 @@ public class GameController {
      * selected athletes
      */
     public ObservableList<Athlete> selectedAthletes(ObservableList<Athlete> athletes) {
-
-        return null;
+        ObservableList<Athlete> selected = FXCollections.observableArrayList();
+        for (Athlete a : athletes)
+        {
+            if (a.isChecked()){
+                selected.add(a);
+                System.out.println(a.getParticipantID() + " is ready for game.");
+            }
+        }
+        return selected;
     }
+
+
+
 
 
 

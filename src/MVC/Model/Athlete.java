@@ -1,8 +1,6 @@
 package MVC.Model;
 
 import javafx.beans.property.*;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 
 public abstract class Athlete extends Participant
 {
@@ -29,5 +27,7 @@ public abstract class Athlete extends Participant
 
     public IntegerProperty scoreProperty() { return new SimpleIntegerProperty(athleteScore);}
     public abstract StringProperty abilityProperty();
+
+
 
 }

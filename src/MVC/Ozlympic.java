@@ -3,6 +3,7 @@ package MVC;
 //import MVC.Control.Driver;
 import MVC.Model.Athlete;
 import MVC.Model.DataStructure;
+import MVC.Model.Game;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -17,7 +18,9 @@ public class Ozlympic extends Application {
 
     public static void main(String[] args) {
 //        DataStructure dataStructure = new DataStructure();
-        DataStructure.addAthletes();
+        DataStructure.initialize();
+//        Game game;
+
         launch(args);
     }
 

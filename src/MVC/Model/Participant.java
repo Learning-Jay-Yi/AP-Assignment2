@@ -47,6 +47,8 @@ public abstract class Participant {
         return participantAge;
     }
 
+    public boolean isChecked() {return checked.get(); }
+
     public void setParticipantID(String participantID) {
         this.participantID = participantID;
     }
@@ -72,6 +74,9 @@ public abstract class Participant {
     public IntegerProperty ageProperty() { return new SimpleIntegerProperty(participantAge);}
     public StringProperty stateProperty() { return new SimpleStringProperty(participantState);}
 
-    public BooleanProperty checkProperty(){ return checked;}
+    public BooleanProperty checkProperty() { return checked; }
+
+
+
 
 }
