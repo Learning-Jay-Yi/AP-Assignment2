@@ -67,16 +67,16 @@ public class Results {
         this.official = official;
     }
 
-
-
-    public String toPrint() { // TODO: 10/10/2017 need to change this original ToString methods in coontroller class
-        return  game.toString()+
-                "\n\tRefer from \n" + official.printParticipant() +
-                "\nFirstPlace: " + firstID +
-                "\nSecondPlace: " + secondID +
-                "\nThirdPlace: " + thirdID;
-
-    }
+//
+//
+//    public String toPrint() { // TODO: 10/10/2017 need to change this original ToString methods in coontroller class
+//        return  game.toString()+
+//                "\n\tRefer from \n" + official.printParticipant() +
+//                "\nFirstPlace: " + firstID +
+//                "\nSecondPlace: " + secondID +
+//                "\nThirdPlace: " + thirdID;
+//
+//    }
 
     @Override
     public String toString() { //To string to save file
@@ -85,14 +85,14 @@ public class Results {
                 " " + firstID +
                 " " + secondID +
                 " " + thirdID +
-                " " + official.getParticipantID();
+                " " + official.getOfficialID();
 
     }
 
     public StringProperty firstPlaceProperty() {return new SimpleStringProperty(firstID);}
     public StringProperty secondPlaceProperty() {return new SimpleStringProperty(secondID);}
     public StringProperty thirdPlaceProperty() {return new SimpleStringProperty(thirdID);}
-    public StringProperty officialIdProperty() {return new SimpleStringProperty(official.getParticipantID());}
+    public StringProperty officialIdProperty() {return new SimpleStringProperty(official.getOfficialID());}
     public StringProperty gameIdProperty() {return new SimpleStringProperty(game.getGameID());}
     public StringProperty gameTypeProperty() {return new SimpleStringProperty(game.getGameType());}
 }

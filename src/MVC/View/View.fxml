@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.101" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MVC.Control.GameController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MVC.Control.GameController">
    <center>
       <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
         <tabs>
@@ -51,8 +51,8 @@
                                         <TableColumn fx:id="athleteTableAthleteNameCol" editable="false" prefWidth="100.0" sortable="false" text="Athlete Name" />
                                           <TableColumn fx:id="athleteTableAthleteAgeCol" editable="false" prefWidth="100.0" sortable="false" text="Athlete Age" />
                                           <TableColumn fx:id="athleteTableAthleteStateCol" editable="false" prefWidth="100.0" sortable="false" text="Athlete State" />
-                                          <TableColumn fx:id="athleteTableAthleteTypeCol" editable="false" prefWidth="100.0" text="Athlete Type" />
-                                          <TableColumn fx:id="athleteTableSelectedCol" editable="true" prefWidth="100.0" sortable="false" text="Selected" />
+                                          <TableColumn fx:id="athleteTableAthleteTypeCol" editable="false" prefWidth="100.0" sortable="false" text="Athlete Type" />
+                                          <TableColumn fx:id="athleteTableSelectedCol" prefWidth="100.0" sortable="false" text="Selected" />
                                       </columns>
                                     </TableView>
                                  </center>

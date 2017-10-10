@@ -31,7 +31,7 @@ public class ProcessResults {
     //Method to invoke compete method of each athlete and sorting from best result to worst
     public ArrayList processResultsArrayList(ArrayList<Athlete> participantArrayList, Game game){
         for (int i = 0; i <participantArrayList.size(); i++){
-            setAthID(participantArrayList.get(i).getParticipantID());
+            setAthID(participantArrayList.get(i).getAthleteID());
             setAthResults(participantArrayList.get(i).compete(game.getGameType()));
             ProcessResults processResults = new ProcessResults(athID,athResults);
 //

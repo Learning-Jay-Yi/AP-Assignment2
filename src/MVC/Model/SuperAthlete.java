@@ -12,17 +12,10 @@ import javafx.beans.property.StringProperty;
 import java.util.Random;
 
 public class SuperAthlete extends Athlete {
-    private String participantAbility;
     private int result; //results from the compete method
 
-    public SuperAthlete (String participantID, String participantName,  int participantAge,String participantState, int athleteScore) {
-        super(participantID,participantName,participantAge,participantState, athleteScore);
-        participantAbility = "Super";
-    }
-
-
-    public String getParticipantAbility() {
-        return participantAbility;
+    public SuperAthlete (String athleteID, String athleteName, int athleteAge, String athleteState, String athleteAbility, int athleteScore) {
+        super(athleteID,athleteName,athleteAge,athleteState,athleteAbility,athleteScore);
     }
 
     public int compete(String gameType) { //Take gameType parameter so that this class knows which compete to use
@@ -49,11 +42,4 @@ public class SuperAthlete extends Athlete {
         result = random.nextInt(max - min + 1) + min;
         return result;
     }
-
-    @Override
-    public String printParticipant() {
-        return participantAbility;
-    }// TODO: 9/10/2017
-    @Override
-    public StringProperty abilityProperty() {return new SimpleStringProperty(participantAbility);}
 }

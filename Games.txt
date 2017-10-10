@@ -1,1 +1,1 @@
-gameID:gameID:gameID:G00	gameType:gameType:gameType:null
+gameID:gameID:gameID:gameID:gameID:gameID:gameID:gameID:gameID:gameID:gameID:gameID:G00	gameType:gameType:gameType:gameType:gameType:gameType:gameType:gameType:gameType:gameType:gameType:gameType:null

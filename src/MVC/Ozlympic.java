@@ -18,13 +18,11 @@ import java.io.IOException;
 
 public class Ozlympic extends Application {
 
-    GameController gameController = new GameController();
-    DataStructure dataStructure = new DataStructure();
+//    GameController gameController = new GameController();
+//    DataStructure dataStructure = new DataStructure();
 
     public static void main(String[] args) throws IOException {
-//        DataStructure dataStructure = new DataStructure();
         DataStructure.initialize();
-//        DataStructure.saveGame();
         launch(args);
     }
 

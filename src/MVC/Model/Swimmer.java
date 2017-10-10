@@ -12,18 +12,12 @@ import javafx.beans.property.StringProperty;
 import java.util.Random;
 
 public class Swimmer extends Athlete {
-    private String participantAbility;
     private int result; //Result of their compete method
 
-    public Swimmer (String participantID, String participantName,  int participantAge,String participantState, int athleteScore) {
-        super(participantID,participantName,participantAge,participantState, athleteScore);
-        participantAbility = "Swim";
+    public Swimmer (String athleteID, String athleteName, int athleteAge, String athleteState, String athleteAbility, int athleteScore) {
+        super(athleteID,athleteName,athleteAge,athleteState,athleteAbility,athleteScore);
     }
 
-
-    public String getParticipantAbility() {
-        return participantAbility;
-    }
 
     public int compete(String gameType) {
 
@@ -33,10 +27,4 @@ public class Swimmer extends Athlete {
         result = random.nextInt(max - min + 1) + min;//provides a number between 100 seconds to 200 second
         return result;
     }
-    @Override
-    public String printParticipant() {
-        return participantAbility;
-    }// TODO: 9/10/2017
-    @Override
-    public StringProperty abilityProperty() {return new SimpleStringProperty(participantAbility);}
 }

@@ -1,6 +1,7 @@
 package MVC.Model;
 
-import MVC.Model.Participant;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
@@ -12,26 +13,57 @@ import javafx.beans.property.StringProperty;
  * Update Date: 04/09/2017
  **********************************************************************************************************************/
 
-public class Official extends Participant {
-    public Official(String participantID, String participantName, int participantAge ,String participantState) {
-        super(participantID,participantName,participantAge,participantState);
+public class Official {
 
+    private String officialID;
+    private String officialName;
+    private int officialAge;
+    private String officialState;
+    
+    
+    public Official(String officialID, String officialName, int officialAge, String officialState){
+        this.officialID = officialID;
+        this.officialName = officialName;
+        this.officialAge = officialAge;
+        this.officialState = officialState;
     }
 
-    public String printParticipant() {
-        return "MVC.Model.Official ID: " + super.getParticipantID() +
-                "\tMVC.Model.Official Name: " + super.getParticipantName();
+    public String getOfficialID() {
+        return officialID;
     }
 
-//    @Override
-//    public String getParticipantAbility() {
-//        return null;
-//    }
+    public String getOfficialName() {
+        return officialName;
+    }
 
-    public StringProperty officialProperty() {return new SimpleStringProperty(super.getParticipantID());}
+    public int getOfficialAge() {
+        return officialAge;
+    }
+
+    public String getOfficialState() {
+        return officialState;
+    }
+
+
+
+    public StringProperty idProperty() {
+        return new SimpleStringProperty(officialID);
+    }
+
+    public StringProperty nameProperty() {
+        return new SimpleStringProperty(officialName);
+    }
+
+    public IntegerProperty ageProperty() {
+        return new SimpleIntegerProperty(officialAge);
+    }
+
+    public StringProperty stateProperty(){
+        return new SimpleStringProperty(officialState);
+    }
 
     public String toString(){
-        return super.getParticipantID() + " " + super.getParticipantName() + " " + super.getParticipantState() + " " + super.getParticipantAge() ;
+        return getOfficialID() + " " + getOfficialName() + " " + getOfficialAge()  + " " + getOfficialState() ;
     }
 
 

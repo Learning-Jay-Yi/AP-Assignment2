@@ -9,11 +9,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.Tab;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.CheckBoxTableCell;
 import javafx.stage.Stage;
 
@@ -24,13 +20,29 @@ import java.util.Scanner;
 
 
 public class GameController {
-    Game game;
+//    Game game;
 //    Driver driver;
 //    GameProcess gameProcess;
-    DataStructure dataStructure;
 
-    String gameID = "";
-    String gameType = "";
+    String gameID;
+
+    String gameType;
+
+//    private DataStructure dataStructure; // = new DataStructure();
+
+
+    private ObservableList<Athlete> athleteData = DataStructure.getAthleteArrayList(); //FXCollections.observableArrayList();
+
+    private ObservableList<Athlete> preAthleteData = FXCollections.observableArrayList();
+
+    private ObservableList<Athlete> participantData = FXCollections.observableArrayList();
+
+
+
+
+
+
+
 
     @FXML // fx:id="tabGame"
     private Tab tabGame; // Value injected by FXMLLoader
@@ -195,7 +207,25 @@ public class GameController {
 
     @FXML
     void btRunClick(ActionEvent event) {
-
+//        ObservableList<Athlete> participant =
+        selectedAthletes();
+        int numOfParticipant = participantData.size();
+        if (numOfParticipant>8){
+            Alert alert = new Alert(Alert.AlertType.WARNING,
+                    "Number of participants should between 4 and 8\nNow we have " + numOfParticipant + " participants"
+                    +"\nPlease select again.",
+                    ButtonType.OK);
+            alert.showAndWait();
+            for(Athlete a: preAthleteData){
+                if (a.isChecked()){
+                    participantData.remove(a);
+                    System.out.println(a.getAthleteID()+ "is quit game.");
+                    a.checkProperty().set(false);
+                }
+            }
+//            selectedAthletes(preAthleteData);
+            // TODO: 2017/10/11 follow
+        }
     }
 
     @FXML
@@ -210,16 +240,17 @@ public class GameController {
 
     @FXML
     void btSwimmingClick(ActionEvent event) {
-//        int gameIndex = games.size();
-//        gameID = games.get(gameIndex-1).getGameID() + 1;
         gameType = "Swimming";
-        // set athlete type
-        athleteType(gameType);
-        System.out.println(athleteType.size());
+        preAthlete(athleteData);
+        System.out.println(preAthleteData.size());
         displayAthlete();
-        ObservableList<Athlete> participant = selectedAthletes(athleteType);
-
         enable();
+    }
+
+    private void enable() {
+        athleteTable.setDisable(false);
+        btRun.setDisable(false);
+        btReset.setDisable(false);
     }
 
 
@@ -232,8 +263,7 @@ public class GameController {
 
 
 
-
-    // load
+    // initialize data from files or data structure
     @FXML
     public void initialize()
     {
@@ -243,142 +273,144 @@ public class GameController {
         athleteTableAthleteStateCol.setCellValueFactory(cellDate -> cellDate.getValue().stateProperty());
         athleteTableAthleteTypeCol.setCellValueFactory(cellData -> cellData.getValue().abilityProperty());
 
-
         athleteTableSelectedCol.setCellFactory(column -> new CheckBoxTableCell());
         athleteTableSelectedCol.setCellValueFactory(cellData -> cellData.getValue().checkProperty());
 
-
-
         athleteTable.setItems(athleteData);
         athleteTable.setDisable(true);
-//        athleteTable.setEditable(true);
-
+        athleteTable.setEditable(false);
     }
+
+//    private ObservableList athleteData() {
+//        ObservableList<Athlete> athleteObservableList = FXCollections.observableArrayList();
+//        for (Athlete a: dataStructure.getAthleteArrayList())
+//            athleteObservableList.add(a);
+//        return athleteObservableList;
+//    }
+
 
     /**
      * new function to load data to table
-//     * @param prepAthletes
+     *
      */
+
+    // display athletes depend on game type
+    @FXML
     public void displayAthlete() {
+
         athleteTableAthleteIDCol.setCellValueFactory(cellData -> cellData.getValue().idProperty());
         athleteTableAthleteNameCol.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
         athleteTableAthleteAgeCol.setCellValueFactory(cellDate -> cellDate.getValue().ageProperty().asObject());
         athleteTableAthleteStateCol.setCellValueFactory(cellDate -> cellDate.getValue().stateProperty());
         athleteTableAthleteTypeCol.setCellValueFactory(cellData -> cellData.getValue().abilityProperty());
 
-
         athleteTableSelectedCol.setCellFactory(column -> new CheckBoxTableCell());
         athleteTableSelectedCol.setCellValueFactory(cellData -> cellData.getValue().checkProperty());
 
-
-
-        athleteTable.setItems(athleteType);
+        athleteTable.setItems(preAthleteData);
         athleteTable.setDisable(false);
+        athleteTable.setEditable(true);
 
     }
 
     /**
      * data part
      */
-    private ObservableList<Athlete> athleteData = getAthlete(DataStructure.getAthleteArrayList());
+
+
+    /**
+     * below part may not useful
+     */
 //    private ObservableList<Athlete> prepAthletes;
-
-    public ObservableList<Athlete> getAthlete(ArrayList<Athlete> athleteArrayList){
-
-        ObservableList<Athlete> athleteData = FXCollections.observableArrayList();
-        for (Athlete a : athleteArrayList)
-            athleteData.add(a);
-        return athleteData;
-    }
-    private ObservableList<Game> games = getGame(DataStructure.getGameArrayList());
-
-    private ObservableList<Game> getGame(ArrayList<Game> gameArrayList) {
-        int size = gameArrayList.size();
-        ObservableList<Game> gameData = FXCollections.observableArrayList();
-
-        return gameData;
-    }
-
-    private ObservableList<Official> officials = getOfficial(DataStructure.getOfficialArrayList());
-
-    private ObservableList<Official> getOfficial(ArrayList<Official> officialArrayList) {
-        return null;
-    }
-
-    private ObservableList<Results> results = geResult(DataStructure.getResultArrayList());
-
-    private ObservableList<Results> geResult(ArrayList<Results> resultsArrayList) {
-        return null;
-    }
+//
+//    public ObservableList<Athlete> getAthlete(ArrayList<Athlete> athleteArrayList){
+//        ObservableList<Athlete> athleteData = FXCollections.observableArrayList();
+//        for (Athlete a : athleteArrayList)
+//            athleteData.add(a);
+//        return athleteData;
+//    }
 
 
 
+    private ObservableList<Game> games = DataStructure.getGameArrayList();
+
+//    private ObservableList<Game> getGame(ArrayList<Game> gameArrayList) {
+//        int size = gameArrayList.size();
+//        ObservableList<Game> gameData = FXCollections.observableArrayList();
+//        return gameData;
+//    }
+
+    private ObservableList<Official> officials = DataStructure.getOfficialArrayList();
+
+//    private ObservableList<Official> getOfficial(ArrayList<Official> officialArrayList) {
+//        return null;
+//    }
+
+    private ObservableList<Results> results = DataStructure.getResultArrayList();
+
+//    private ObservableList<Results> geResult(ArrayList<Results> resultsArrayList) {
+//        return null;
+//    }
 
 
-    private void enable() {
-        athleteTable.setDisable(false);
-        btRun.setDisable(false);
-        btReset.setDisable(false);
-    }
+
+
+
+
 
 
 
     /**
      *
      * @return return suitable athletes to controller
+     *
      */
 
-    ObservableList<Athlete> athleteType = FXCollections.observableArrayList();
 
-    public ObservableList<Athlete> athleteType(String gameType) {
 
+
+    @FXML
+    private ObservableList<Athlete> preAthlete(ObservableList<Athlete> athleteData) {
+//        ObservableList<Athlete> preAthleteData = FXCollections.observableArrayList();
         if (gameType == "Swimming"){
             for (Athlete a : athleteData){
-                if (a instanceof Swimmer && a instanceof SuperAthlete)
-                    athleteType.add(a);
+                if (a instanceof Swimmer || a instanceof SuperAthlete ){
+                    preAthleteData.add(a);
+                }
             }
-
-        }else if (gameType == "Cycling"){
-            for (Athlete a : athleteData){
-                if (a instanceof Cyclist && a instanceof SuperAthlete)
-                    athleteType.add(a);
-            }
-
-        }else if (gameType == "Running"){
-            for (Athlete a : athleteData){
-                if (a instanceof Runner && a instanceof SuperAthlete)
-                    athleteType.add(a);
-            }
-
         }
-        return athleteType;
+
+        if (gameType == "Cycling"){
+            for (Athlete a : athleteData){
+                if (a instanceof Cyclist || a instanceof SuperAthlete){
+                    preAthleteData.add(a);
+                }
+            }
+        }
+
+        if (gameType == "Running"){
+            for (Athlete a : athleteData){
+                if (a instanceof Runner || a instanceof SuperAthlete){
+                    preAthleteData.add(a);
+                }
+            }
+        }
+        return preAthleteData;
     }
 
 
     /**
      * selected athletes
      */
-    public ObservableList<Athlete> selectedAthletes(ObservableList<Athlete> athletes) {
-        ObservableList<Athlete> selected = FXCollections.observableArrayList();
-        for (Athlete a : athletes)
+    @FXML
+    public ObservableList<Athlete> selectedAthletes() {
+        for (Athlete a : preAthleteData)
         {
             if (a.isChecked()){
-                selected.add(a);
-                System.out.println(a.getParticipantID() + " is ready for game.");
+                participantData.add(a);
+                System.out.println(a.getAthleteID() + " is ready for game.");
             }
         }
-        return selected;
+        return participantData;
     }
-
-    /****************************************************************************************************************
-     *
-     * Saving && Loading
-     *
-     ****************************************************************************************************************/
-
-
-
-
-
-
 }
