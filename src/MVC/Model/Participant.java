@@ -21,7 +21,7 @@ public abstract class Participant {
 
 
 
-    public Participant(String participantID, String participantName, String participantState, int participantAge){
+    public Participant(String participantID, String participantName , int participantAge, String participantState){
         this.participantID = participantID;
         this.participantName = participantName;
         this.participantState = participantState;

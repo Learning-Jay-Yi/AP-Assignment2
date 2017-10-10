@@ -13,8 +13,8 @@ import javafx.beans.property.StringProperty;
  **********************************************************************************************************************/
 
 public class Official extends Participant {
-    public Official(String participantID, String participantName, String participantState, int participantAge) {
-        super(participantID,participantName,participantState,participantAge);
+    public Official(String participantID, String participantName, int participantAge ,String participantState) {
+        super(participantID,participantName,participantAge,participantState);
 
     }
 
@@ -29,6 +29,10 @@ public class Official extends Participant {
 //    }
 
     public StringProperty officialProperty() {return new SimpleStringProperty(super.getParticipantID());}
+
+    public String toString(){
+        return super.getParticipantID() + " " + super.getParticipantName() + " " + super.getParticipantState() + " " + super.getParticipantAge() ;
+    }
 
 
 

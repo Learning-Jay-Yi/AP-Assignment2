@@ -1,9 +1,9 @@
 package MVC;
 
 //import MVC.Control.Driver;
+import MVC.Control.GameController;
 import MVC.Model.Athlete;
 import MVC.Model.DataStructure;
-import MVC.Model.Game;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -14,13 +14,17 @@ import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
+import java.io.IOException;
+
 public class Ozlympic extends Application {
 
-    public static void main(String[] args) {
+    GameController gameController = new GameController();
+    DataStructure dataStructure = new DataStructure();
+
+    public static void main(String[] args) throws IOException {
 //        DataStructure dataStructure = new DataStructure();
         DataStructure.initialize();
-//        Game game;
-
+        DataStructure.saveGame();
         launch(args);
     }
 
