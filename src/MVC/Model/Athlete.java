@@ -10,7 +10,7 @@ public abstract class Athlete extends Participant
 
     public Athlete(String participantID, String participantName, int participantAge, String participantState, int athleteScore)
     {
-        super(participantID,participantName,participantState,participantAge);
+        super(participantID,participantName,participantAge,participantState);
         this.athleteScore = athleteScore;
     }
 
@@ -29,5 +29,9 @@ public abstract class Athlete extends Participant
 
     public IntegerProperty scoreProperty() { return new SimpleIntegerProperty(athleteScore);}
     public abstract StringProperty abilityProperty();
+
+    public String toStringSave() {
+        return getParticipantID() + getParticipantName() + getParticipantState() + getParticipantAge() + athleteScore;
+    }
 
 }

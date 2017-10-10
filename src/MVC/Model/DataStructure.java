@@ -8,11 +8,11 @@ import java.util.ArrayList;
 
 public class DataStructure {
 
-    private ArrayList<Results> resultsArrayList = new ArrayList<>();
+    private static ArrayList<Results> resultsArrayList = new ArrayList<>();
     private static ArrayList<Athlete> athleteArrayList = new ArrayList<>();
-    private ArrayList<Official> officialArrayList = new ArrayList<>();
-    private ArrayList<ProcessResults> processResultsArrayList = new ArrayList<>();
-    private ArrayList<Game> gameArrayList = new ArrayList<>();
+    private static ArrayList<Official> officialArrayList = new ArrayList<>();
+    private static ArrayList<ProcessResults> processResultsArrayList = new ArrayList<>();
+    private static ArrayList<Game> gameArrayList = new ArrayList<>();
 
 //    private ObservableList <Athlete> athleteObservableList = initialize(athleteArrayList);
 
@@ -43,6 +43,14 @@ public class DataStructure {
 
     public static ArrayList<Athlete> getAthleteArrayList() {
         return athleteArrayList;
+    }
+
+    public static ArrayList<Official> getOfficalArrayList(){
+        return officialArrayList;
+    }
+
+    public static ArrayList<Results> getResultArrayList(){
+        return resultsArrayList;
     }
 
     private ObservableList<Athlete> initialize(ArrayList<Athlete> athleteArrayList) {
@@ -117,10 +125,10 @@ public class DataStructure {
 
 
     public static void setOfficial(ArrayList officialArrayList){
-        Official official1 = new Official("OF01","Official01","VIC",50);
-        Official official2 = new Official("OF02","Official02","VIC",52);
-        Official official3 = new Official("OF03","Official03","VIC",54);
-        Official official4 = new Official("OF04","Official04","VIC",58);
+        Official official1 = new Official("OF01","Official01",50,"VIC");
+        Official official2 = new Official("OF02","Official02",52,"VIC");
+        Official official3 = new Official("OF03","Official03",54, "VIC");
+        Official official4 = new Official("OF04","Official04",58, "VIC");
         officialArrayList.add(official1);
         officialArrayList.add(official2);
         officialArrayList.add(official3);
