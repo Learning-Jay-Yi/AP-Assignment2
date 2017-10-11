@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MVC.Control.GameController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.101" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MVC.Control.GameController">
    <center>
       <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
         <tabs>
@@ -93,12 +93,12 @@
                                  <center>
                                     <TableView fx:id="resultHistoryTable" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                                       <columns>
-                                        <TableColumn fx:id="officialTableGameIDCol" editable="false" prefWidth="90.0" sortable="false" text="Game ID" />
-                                        <TableColumn fx:id="officialTableOfficialIDCol" editable="false" prefWidth="90.0" sortable="false" text="Official ID" />
-                                          <TableColumn fx:id="officialTableGameTypeCol" editable="false" prefWidth="100.0" sortable="false" text="Game Type" />
-                                          <TableColumn fx:id="officialTableFirstPlaceCol" editable="false" prefWidth="100.0" sortable="false" text="Champion ID" />
-                                          <TableColumn fx:id="officialTableSecondPlaceCol" editable="false" prefWidth="110.0" sortable="false" text="Second Place ID" />
-                                          <TableColumn fx:id="officialTableThirdPlaceCol" editable="false" prefWidth="110.0" sortable="false" text="Third Place ID" />
+                                        <TableColumn fx:id="resultHistoryTableGameIDCol" editable="false" prefWidth="90.0" sortable="false" text="Game ID" />
+                                        <TableColumn fx:id="resultHistoryTableOfficialIDCol" editable="false" prefWidth="90.0" sortable="false" text="Official ID" />
+                                          <TableColumn fx:id="resultHistoryTableGameTypeCol" editable="false" prefWidth="100.0" sortable="false" text="Game Type" />
+                                          <TableColumn fx:id="resultHistoryTableFirstPlaceCol" editable="false" prefWidth="100.0" sortable="false" text="Champion ID" />
+                                          <TableColumn fx:id="resultHistoryTableSecondPlaceCol" editable="false" prefWidth="110.0" sortable="false" text="Second Place ID" />
+                                          <TableColumn fx:id="resultHistoryTableThirdPlaceCol" editable="false" prefWidth="110.0" sortable="false" text="Third Place ID" />
                                       </columns>
                                     </TableView>
                                  </center>

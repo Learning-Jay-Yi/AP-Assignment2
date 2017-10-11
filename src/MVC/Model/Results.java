@@ -6,8 +6,10 @@ package MVC.Model; /************************************************************
  * Update Date: 04/09/2017
  **********************************************************************************************************************/
 
+import com.sun.org.apache.regexp.internal.RE;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.util.Collections;
@@ -25,6 +27,7 @@ public class Results {
     private String offcialID;
     private Game game;
     private ObservableList<Athlete> athleteObservableList;
+    private ObservableList<Results> resultsObservableList = FXCollections.observableArrayList();
 
 
     public Results(Game game, ObservableList<Athlete> athleteObservableList, Official official) {
@@ -36,6 +39,12 @@ public class Results {
 
     public void setWiner() {
         Collections.sort(athleteObservableList,(o1, o2)->o1.getResult() - o2.getResult());
+        gameID = game.getGameID();
+        gameType = game.getGameType();
+        firstID = athleteObservableList.get(0).getAthleteID();
+        secondID = athleteObservableList.get(1).getAthleteID();
+        thirdID = athleteObservableList.get(2).getAthleteID();
+        offcialID = official.getOfficialID();
         athleteObservableList.get(0).setAthleteScore(FIRSTPLACEPOINT);
         athleteObservableList.get(1).setAthleteScore(SECONDPLACEPOINT);
         athleteObservableList.get(2).setAthleteScore(THIRDPLACEPOINT);
@@ -65,6 +74,18 @@ public class Results {
         return thirdID;
     }
 
+    public String getGameID() {
+        return gameID;
+    }
+
+    public String getOffcialID() {
+        return offcialID;
+    }
+
+    public String getGameType() {
+        return gameType;
+    }
+
     public void setGame(Game game) {
         this.game = game;
     }
@@ -73,21 +94,24 @@ public class Results {
         this.official = official;
     }
 
-    @Override
     public String toString() { //To string to save file
-        return  game.getGameID() +
-                " " + game.getGameType() +
+        return  gameID +
+                " " + gameType +
                 " " + firstID +
                 " " + secondID +
                 " " + thirdID +
-                " " + official.getOfficialID();
+                " " + offcialID;
+    }
 
+    public ObservableList<Results> getResultsObservableList() {
+        resultsObservableList.add(new Results(gameID,gameType,firstID,secondID,thirdID,offcialID));
+        return resultsObservableList;
     }
 
     public StringProperty firstPlaceProperty() {return new SimpleStringProperty(firstID);}
     public StringProperty secondPlaceProperty() {return new SimpleStringProperty(secondID);}
     public StringProperty thirdPlaceProperty() {return new SimpleStringProperty(thirdID);}
-    public StringProperty officialIdProperty() {return new SimpleStringProperty(official.getOfficialID());}
-    public StringProperty gameIdProperty() {return new SimpleStringProperty(game.getGameID());}
-    public StringProperty gameTypeProperty() {return new SimpleStringProperty(game.getGameType());}
+    public StringProperty officialIdProperty() {return new SimpleStringProperty(offcialID);}
+    public StringProperty gameIdProperty() {return new SimpleStringProperty(gameID);}
+    public StringProperty gameTypeProperty() {return new SimpleStringProperty(gameType);}
 }

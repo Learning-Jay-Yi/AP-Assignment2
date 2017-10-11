@@ -16,6 +16,7 @@ import javafx.stage.Stage;
 import javax.swing.*;
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 
 
@@ -25,9 +26,9 @@ public class GameController {
 //    GameProcess gameProcess;
 
     String gameID;
-
     String gameType;
 
+    Results results;
     CompeteResult competeResult;
 
 //    private DataStructure dataStructure; // = new DataStructure();
@@ -41,6 +42,7 @@ public class GameController {
 
     private ObservableList<Results> resultsData = DataStructure.getResultArrayList();
 
+//    private ObservableList<Results> resultsHistoryData = FXCollections.observableArrayList();
 
     private ObservableList<Athlete> preAthleteData = FXCollections.observableArrayList();
 
@@ -186,7 +188,14 @@ public class GameController {
 
     @FXML
     void btCyclingClick(ActionEvent event) {
+        for (Athlete a: preAthleteData){
+            if (a.isChecked()){
+                a.checkProperty().set(false);
+            }
+        }
         preAthleteData.clear();
+        participantData.clear();
+
         gameType = "Cycling";
         preAthlete(athleteData);
         displayAthlete();
@@ -244,12 +253,19 @@ public class GameController {
                 }
             }
         }
-        else if (numOfParticipant< 4){
+        else if (numOfParticipant < 4){
             Alert alert = new Alert(Alert.AlertType.WARNING,"Game can not hold within 4 participants\nNow we have "
                     + numOfParticipant + " participants"
                     + "\nPlease select more participants.",
                     ButtonType.OK);
             alert.showAndWait();
+            for(Athlete a: preAthleteData){
+                if (a.isChecked()){
+                    participantData.remove(a);
+                    System.out.println(a.getAthleteID()+ " is quit game.");
+                    a.checkProperty().set(false);
+                }
+            }
         }
         else {
             competeResultsData.clear();
@@ -259,43 +275,32 @@ public class GameController {
             alert.showAndWait();
             btRun.setDisable(true);
             btReset.setDisable(true);
-            displayCompeteResultTable();
+
             DataStructure.saveCompeteResults(competeResultsData);
+
+            setWinner();
+            dislayResultHistoryTable();
+            displayCompeteResultTable();
             displayScore();
 
         }
     }
 
-    private void setGame() {
-        int size = gamesData.size();
-        if (size<10)
-            gameID = "G0"+size;
-        else
-            gameID = "G"+size;
-
-        game = new Game(gameID,gameType);
-        gamesData.add(game);
-    }
-
-
-    /**
-     * here may have problems
-     */
-    private void startGame() {
-        competeResult = new CompeteResult(game,participantData);
-        competeResult.getCompeteResults();
-
-        competeResultsData = competeResult.getCompeteResultObservableList();
-    }
 
     @FXML
     void btRunningClick(ActionEvent event) {
+        for (Athlete a: preAthleteData){
+            if (a.isChecked()){
+                a.checkProperty().set(false);
+            }
+        }
         preAthleteData.clear();
+        participantData.clear();
+
         gameType = "Running";
         preAthlete(athleteData);
         displayAthlete();
         enable();
-
     }
 
     @FXML
@@ -305,7 +310,14 @@ public class GameController {
 
     @FXML
     void btSwimmingClick(ActionEvent event) {
+        for (Athlete a: preAthleteData){
+            if (a.isChecked()){
+                a.checkProperty().set(false);
+            }
+        }
         preAthleteData.clear();
+        participantData.clear();
+
         gameType = "Swimming";
         preAthlete(athleteData);
         displayAthlete();
@@ -344,32 +356,26 @@ public class GameController {
         athleteTable.setItems(athleteData);
         athleteTable.setDisable(true);
         athleteTable.setEditable(false);
+//
+//        resultHistoryTableGameIDCol.setCellValueFactory(cellData -> cellData.getValue().gameIdProperty());
+//        resultHistoryTableGameTypeCol.setCellValueFactory(cellData -> cellData.getValue().gameTypeProperty());
+//        resultHistoryTableOfficialIDCol.setCellValueFactory(cellData -> cellData.getValue().officialIdProperty());
+//        resultHistoryTableFirstPlaceCol.setCellValueFactory(cellData -> cellData.getValue().firstPlaceProperty());
+//        resultHistoryTableSecondPlaceCol.setCellValueFactory(cellData -> cellData.getValue().secondPlaceProperty());
+//        resultHistoryTableThirdPlaceCol.setCellValueFactory(cellData -> cellData.getValue().thirdPlaceProperty());
+//
+//        resultHistoryTable.setItems(resultsData);
 
-        resultTableGameIDCol.setCellValueFactory(cellData -> cellData.getValue().resultGameIDProperty());
-        resultTableAthleteIDCol.setCellValueFactory(cellData -> cellData.getValue().resultAthleteIDProperty());
-        resultTableAthleteNameCol.setCellValueFactory(cellData -> cellData.getValue().resultAthleteNameProperty());
-        resultTableAthleteTypeCol.setCellValueFactory(cellData -> cellData.getValue().resultAthleteTypeProperty());
-        resultTableAthleteResultCol.setCellValueFactory(cellData -> cellData.getValue().resultAthleteResultProperty().asObject());
-
-        competeResultTable.setItems(competeResultsData);
-
+        dislayResultHistoryTable();
+        displayCompeteResultTable();
+        displayScore();
 
     }
-
-//    private ObservableList athleteData() {
-//        ObservableList<Athlete> athleteObservableList = FXCollections.observableArrayList();
-//        for (Athlete a: dataStructure.getAthleteArrayList())
-//            athleteObservableList.add(a);
-//        return athleteObservableList;
-//    }
-
 
     /**
      * new function to load data to table
      *
      */
-
-    // display athletes depend on game type
     @FXML
     public void displayAthlete() {
 
@@ -414,58 +420,18 @@ public class GameController {
     }
 
 
-    /**
-     * below part may not useful
-     */
-//    private ObservableList<Athlete> prepAthletes;
-//
-//    public ObservableList<Athlete> getAthlete(ArrayList<Athlete> athleteArrayList){
-//        ObservableList<Athlete> athleteData = FXCollections.observableArrayList();
-//        for (Athlete a : athleteArrayList)
-//            athleteData.add(a);
-//        return athleteData;
-//    }
+    public void dislayResultHistoryTable (){
+        resultHistoryTableGameIDCol.setCellValueFactory(cellData -> cellData.getValue().gameIdProperty());
+        resultHistoryTableGameTypeCol.setCellValueFactory(cellData -> cellData.getValue().gameTypeProperty());
+        resultHistoryTableOfficialIDCol.setCellValueFactory(cellData -> cellData.getValue().officialIdProperty());
+        resultHistoryTableFirstPlaceCol.setCellValueFactory(cellData -> cellData.getValue().firstPlaceProperty());
+        resultHistoryTableSecondPlaceCol.setCellValueFactory(cellData -> cellData.getValue().secondPlaceProperty());
+        resultHistoryTableThirdPlaceCol.setCellValueFactory(cellData -> cellData.getValue().thirdPlaceProperty());
+
+        resultHistoryTable.setItems(resultsData);
+    }
 
 
-
-
-
-//    private ObservableList<Game> getGame(ArrayList<Game> gameArrayList) {
-//        int size = gameArrayList.size();
-//        ObservableList<Game> gameData = FXCollections.observableArrayList();
-//        return gameData;
-//    }
-
-
-
-//    private ObservableList<Official> getOfficial(ArrayList<Official> officialArrayList) {
-//        return null;
-//    }
-
-
-
-
-
-
-//    private ObservableList<Results> geResult(ArrayList<Results> resultsArrayList) {
-//        return null;
-//    }
-
-
-
-
-
-
-
-
-
-    /**
-     *
-     * @return return suitable athletes to controller
-     *
-     */
-
-    @FXML
     private ObservableList<Athlete> preAthlete(ObservableList<Athlete> athleteData) {
 //        ObservableList<Athlete> preAthleteData = FXCollections.observableArrayList();
         if (gameType == "Swimming"){
@@ -498,7 +464,7 @@ public class GameController {
     /**
      * selected athletes
      */
-    @FXML
+
     public ObservableList<Athlete> selectedAthletes() {
         for (Athlete a : preAthleteData)
         {
@@ -520,5 +486,53 @@ public class GameController {
         DataStructure.saveCompeteResults(competeResultsData);
         DataStructure.saveResultData(resultsData);
         DataStructure.saveGame(gamesData);
+    }
+
+    /**
+     * other functions
+     */
+
+
+
+    private void setGame() {
+        int size = gamesData.size();
+        if (size<10)
+            gameID = "G0"+size;
+        else
+            gameID = "G"+size;
+
+        game = new Game(gameID,gameType);
+        gamesData.add(game);
+    }
+
+    private void startGame() {
+        competeResult = new CompeteResult(game,participantData);
+        competeResult.getCompeteResults();
+        competeResultsData = competeResult.getCompeteResultObservableList();
+
+    }
+
+    private void setWinner() throws Exception {
+        results = new Results(game,participantData,official());
+        results.setWiner();
+//        results.getResultsObservableList();
+        resultsData.add(
+                new Results(
+                        results.getGameID(),
+                        results.getGameType(),
+                        results.getOffcialID(),
+                        results.getFirstID(),
+                        results.getSecondID(),
+                        results.getThirdID()
+                )
+        );
+        DataStructure.saveResultData(resultsData);
+
+    }
+
+    private Official official() {
+        Random rundom = new Random();
+        int index = rundom.nextInt(3);
+        return officialsData.get(index);
     }
 }

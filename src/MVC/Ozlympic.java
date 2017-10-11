@@ -42,7 +42,6 @@ public class Ozlympic extends Application {
             System.out.println(e);
             e.printStackTrace();
         }
-
         primaryStage.show();
     }
 
