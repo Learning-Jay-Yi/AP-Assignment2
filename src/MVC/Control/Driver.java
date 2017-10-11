@@ -6,7 +6,7 @@
 // * Update Date: 09/09/2017
 // **********************************************************************************************************************/
 //package MVC.Control;
-//import MVC.Control.ProcessResults;
+//import MVC.Model.ProcessResults;
 //import MVC.Model.*;
 //
 //import javax.swing.*;

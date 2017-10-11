@@ -43,7 +43,7 @@ public class Game {
 
     @Override
     public String toString() {
-        return "gameID:" + getGameID() + "\tgameType:" +getGameType();
+        return getGameID() + " " +getGameType();
     }
 
     public StringProperty gameIdProperty() {return new SimpleStringProperty(gameID);}

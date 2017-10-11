@@ -1,0 +1,6 @@
+G06 S04 Swim04 Swimmer 100
+G06 S05 Swim05 Swimmer 101
+G06 SA02 Sup02 Super 116
+G06 S07 Swim07 Swimmer 128
+G06 SA01 Sup01 Super 155
+G06 S06 Swim06 Swimmer 164

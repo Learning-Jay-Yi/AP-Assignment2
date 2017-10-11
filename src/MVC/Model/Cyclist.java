@@ -16,12 +16,15 @@ public class Cyclist extends Athlete {
         super(athleteID,athleteName,athleteAge,athleteState,athleteAbility,athleteScore);
     }
 
-    public int compete(String gameType) {
+    public void compete(String gameType) {
         int min = 500;  //min result in seconds
         int max = 800;  //max result in seconds
         Random random =  new Random();
         result = random.nextInt(max - min + 1) + min;//provides a number between 100 seconds to 200 second
-        return result;
+//        return result;
     }
 
+    public int getResult() {
+        return result;
+    }
 }

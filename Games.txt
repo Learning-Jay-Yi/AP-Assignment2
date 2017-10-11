@@ -1,1 +1,7 @@
-gameID:gameID:gameID:gameID:gameID:gameID:gameID:gameID:gameID:gameID:gameID:gameID:G00	gameType:gameType:gameType:gameType:gameType:gameType:gameType:gameType:gameType:gameType:gameType:gameType:null
+G00 null
+G01 Swimming
+G02 Swimming
+G03 Swimming
+G04 Swimming
+G05 Cycling
+G06 Swimming

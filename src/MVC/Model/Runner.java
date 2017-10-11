@@ -19,12 +19,16 @@ public class Runner extends Athlete {
     public Runner (String athleteID, String athleteName, int athleteAge, String athleteState, String athleteAbility, int athleteScore) {
         super(athleteID,athleteName,athleteAge,athleteState,athleteAbility,athleteScore);
     }
-    public int compete(String gameType) {
+    public void compete(String gameType) {
 
         int min = 10;  //min result in seconds
         int max = 20;  //max result in seconds
         Random random =  new Random();
         result = random.nextInt(max - min + 1) + min;//provides a number between 100 seconds to 200 second
+//        return result;
+    }
+
+    public int getResult() {
         return result;
     }
 }

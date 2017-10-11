@@ -18,7 +18,7 @@ public class SuperAthlete extends Athlete {
         super(athleteID,athleteName,athleteAge,athleteState,athleteAbility,athleteScore);
     }
 
-    public int compete(String gameType) { //Take gameType parameter so that this class knows which compete to use
+    public void compete(String gameType) { //Take gameType parameter so that this class knows which compete to use
         Random random =  new Random();
         int min = 0;
         int max = 0;
@@ -40,6 +40,10 @@ public class SuperAthlete extends Athlete {
         //provides a number
         //Generates a number between the range provided by the min and max variables
         result = random.nextInt(max - min + 1) + min;
+//        return result;
+    }
+
+    public int getResult() {
         return result;
     }
 }

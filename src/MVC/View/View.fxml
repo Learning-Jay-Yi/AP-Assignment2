@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MVC.Control.GameController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.101" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MVC.Control.GameController">
    <center>
       <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
         <tabs>
@@ -91,21 +91,21 @@
                           <items>
                               <BorderPane prefHeight="200.0" prefWidth="200.0">
                                  <center>
-                                    <TableView fx:id="officialTable" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                                    <TableView fx:id="resultHistoryTable" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                                       <columns>
                                         <TableColumn fx:id="officialTableGameIDCol" editable="false" prefWidth="90.0" sortable="false" text="Game ID" />
                                         <TableColumn fx:id="officialTableOfficialIDCol" editable="false" prefWidth="90.0" sortable="false" text="Official ID" />
-                                          <TableColumn fx:id="officialTableGameTypeCol" prefWidth="100.0" text="Game Type" />
+                                          <TableColumn fx:id="officialTableGameTypeCol" editable="false" prefWidth="100.0" sortable="false" text="Game Type" />
                                           <TableColumn fx:id="officialTableFirstPlaceCol" editable="false" prefWidth="100.0" sortable="false" text="Champion ID" />
-                                          <TableColumn fx:id="officialTableSecondPlaceCol" prefWidth="110.0" text="Second Place ID" />
-                                          <TableColumn fx:id="officialTableThirdPlaceCol" prefWidth="110.0" text="Third Place ID" />
+                                          <TableColumn fx:id="officialTableSecondPlaceCol" editable="false" prefWidth="110.0" sortable="false" text="Second Place ID" />
+                                          <TableColumn fx:id="officialTableThirdPlaceCol" editable="false" prefWidth="110.0" sortable="false" text="Third Place ID" />
                                       </columns>
                                     </TableView>
                                  </center>
                               </BorderPane>
                               <BorderPane prefHeight="200.0" prefWidth="200.0">
                                  <center>
-                                    <TableView fx:id="resultTable" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                                    <TableView fx:id="competeResultTable" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                                       <columns>
                                         <TableColumn fx:id="resultTableGameIDCol" editable="false" prefWidth="100.0" sortable="false" text="Game ID" />
                                         <TableColumn fx:id="resultTableAthleteIDCol" editable="false" prefWidth="100.0" sortable="false" text="Athlete ID" />
@@ -125,7 +125,7 @@
                               <Button fx:id="btResultNewGame" mnemonicParsing="false" onAction="#btResultNewGameClick" prefHeight="30.0" text="New Game" BorderPane.alignment="CENTER" />
                            </left>
                            <right>
-                              <Button fx:id="btPlayAgain" mnemonicParsing="false" onAction="#btPlayAgainClick" prefHeight="30.0" text="Play Again" BorderPane.alignment="CENTER" />
+                              <Button fx:id="btCompete" mnemonicParsing="false" onAction="#btCompeteClick" prefHeight="30.0" text="Compete again" BorderPane.alignment="CENTER" />
                            </right>
                         </BorderPane>
                      </bottom>

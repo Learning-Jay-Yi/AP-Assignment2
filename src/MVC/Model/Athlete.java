@@ -88,7 +88,9 @@ public abstract class Athlete
     }
 
 
-    public abstract int compete(String gameType);
+    public abstract void compete(String gameType);
+
+    public abstract int getResult();
 
     public String toStringSave() {
         return  getAthleteID() + " " +

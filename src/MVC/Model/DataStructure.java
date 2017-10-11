@@ -1,6 +1,5 @@
 package MVC.Model;
 
-import MVC.Control.ProcessResults;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -13,22 +12,9 @@ public class DataStructure {
     private static ObservableList<Results> resultsArrayList = FXCollections.observableArrayList();
     private static ObservableList<Athlete> athleteArrayList = FXCollections.observableArrayList();
     private static ObservableList<Official> officialArrayList = FXCollections.observableArrayList();
-    private static ObservableList<ProcessResults> processResultsArrayList = FXCollections.observableArrayList();
     private static ObservableList<Game> gameArrayList = FXCollections.observableArrayList();
+    private static ObservableList<CompeteResult> competeResultArrayList = FXCollections.observableArrayList();
 
-
-//    public DataStructure(ObservableList<Results> resultsArrayList,
-//                         ObservableList<Athlete> athleteArrayList,
-//                         ObservableList<Official> officialArrayList,
-//                         ObservableList<ProcessResults> processResultsArrayList,
-//                         ObservableList<Game> gameArrayList){
-//        this.athleteArrayList = athleteArrayList;
-//        this.officialArrayList = officialArrayList;
-//        this.gameArrayList = gameArrayList;
-//        this.resultsArrayList = resultsArrayList;
-//        this.processResultsArrayList = processResultsArrayList;
-//
-//    }
     public DataStructure(){
 
     }
@@ -50,10 +36,13 @@ public class DataStructure {
         this.officialArrayList = officialArrayList;
     }
 
-    public void setProcessResultsArrayList(ObservableList<ProcessResults> processResultsArrayList) {
-        this.processResultsArrayList = processResultsArrayList;
-    }
+//    public void setProcessResultsArrayList(ObservableList<ProcessResults> processResultsArrayList) {
+//        this.processResultsArrayList = processResultsArrayList;
+//    }
 
+    public static void setCompeteResultArrayList(ObservableList<CompeteResult> competeResultArrayList) {
+        DataStructure.competeResultArrayList = competeResultArrayList;
+    }
 
     public static ObservableList<Athlete> getAthleteArrayList() {
         return athleteArrayList;
@@ -71,101 +60,128 @@ public class DataStructure {
         return resultsArrayList;
     }
 
-
-    public static void loadfiles() throws IOException { //method to load all saved data
-        loadResultData();
-        loadAthleteData();
-        loadOfficialData();
-        loadGame();
-        System.out.println("Data loaded successfully ");
-    }
-
-    public static void savefiles() throws IOException { //method to call all save methods
-        saveResultData();
-        saveAthleteData();
-        saveOfficialData();
-        saveGame();
-        System.out.println("Data saved successfully!");
+    public static ObservableList<CompeteResult> getCompeteResultArrayList() {
+        return competeResultArrayList;
     }
 
 
 
-    public static void saveResultData() throws IOException {
+//    public static void savefiles() throws Exception { //method to call all save methods
+//        saveResultData();
+//        saveAthleteData();
+//        saveOfficialData();
+//        saveGame();
+//        System.out.println("Data saved successfully!");
+//    }
+
+
+    /**
+     * save data
+     */
+
+    public static void saveCompeteResults(ObservableList<CompeteResult> list) throws Exception{
+
+
+        try {
+            FileWriter fw = new FileWriter("CompeteResults.txt");
+            BufferedWriter output = new BufferedWriter(fw);
+            for (CompeteResult c: list){
+                output.write(c.toString());
+                output.newLine();
+            }
+
+            output.close();
+        } catch (Exception e){
+            System.out.println("I cannot create that file");
+        }
+
+
+    }
+
+    public static void saveResultData(ObservableList<Results> list) throws Exception {
         try {
             FileWriter fw = new FileWriter("Results.txt");
             BufferedWriter output = new BufferedWriter(fw);
 
-            for (int i = 0; i < DataStructure.getResultArrayList().size(); i++){ //save everything from Result arraylist
-                output.write(DataStructure.getResultArrayList().get(i).toString());
+            for (Results r: list){ //save everything from Result arraylist
+                output.write(r.toString());
                 output.newLine();
             }
-
-
-
             output.close();
-
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "I cannot create that file");
+            System.out.println("I cannot create that file");
         }
     }
 
-    public static void saveAthleteData() throws IOException {
+    public static void saveAthleteData(ObservableList<Athlete> list) throws Exception {
         try {
+            FileWriter fw = new FileWriter("Athlete.txt"); //Creating text file
+            BufferedWriter output = new BufferedWriter(fw); //Writing into file
 
-
-            FileWriter fw2 = new FileWriter("Athlete.txt"); //Creating text file
-            BufferedWriter output2 = new BufferedWriter(fw2); //Writing into file
-
-
-            for (int i = 0; i < DataStructure.getAthleteArrayList().size(); i++){ // save everything from Athlete arraylist
-                output2.write(DataStructure.getAthleteArrayList().get(i).toStringSave());
-                output2.newLine();// goes to new line after each entry
+            for (Athlete a: list){ // save everything from Athlete arraylist
+                output.write(a.toStringSave());
+                output.newLine();// goes to new line after each entry
             }
-
-            output2.close();
-
+            output.close();
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "I cannot create that file");
+            System.out.println("I cannot create that file");
         }
     }
 
-    public static void saveOfficialData() throws IOException {
+    public static void saveOfficialData(ObservableList<Official> list) throws Exception {
         try {
 
             FileWriter fw = new FileWriter("Official.txt");
             BufferedWriter output = new BufferedWriter(fw);
 
-            for (int i = 0; i < DataStructure.getOfficialArrayList().size(); i++) { //Save everything from Official arraylist
-                output.write(DataStructure.getOfficialArrayList().get(i).toString());
+            for (Official o: list) { //Save everything from Official arraylist
+                output.write(o.toString());
                 output.newLine();// goes to new line after each entry
             }
             output.close();
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "I cannot create that file");
+            System.out.println("I cannot create that file");
         }
 
     }
 
-    public static void saveGame() throws IOException {
+    public static void saveGame(ObservableList<Game> list) throws Exception {
         try {
-
             FileWriter fw = new FileWriter("Games.txt");
             BufferedWriter output = new BufferedWriter(fw);
 
-            for (int i = 0; i < DataStructure.getGameArrayList().size(); i++) { //Save everything from Official arraylist
-                output.write(DataStructure.getGameArrayList().get(i).toString());
+            for (Game g: list) { //Save everything from Official arraylist
+                output.write(g.toString());
                 output.newLine();// goes to new line after each entry
             }
-
             output.close();
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "I cannot create that file");
+            System.out.println("I cannot create that file");
         }
 
     }
 
+    /**
+     * load data
+     */
 
-    public static void loadOfficialData() throws FileNotFoundException { //load game result data back to results arraylist
+    public static void  loadCompeteResultsData() throws Exception{
+        File f = new File("CompeteResults.txt");
+        Scanner sc = new Scanner(f);
+
+        while (sc.hasNext()){
+            String gameID = sc.next();
+            String athleteID = sc.next();
+            String athleteName = sc.next();
+            String athleteType = sc.next();
+            int athleteResults = sc.nextInt();
+
+            competeResultArrayList.add(new CompeteResult(gameID,athleteID,athleteName,athleteType,athleteResults));
+        }
+        sc.close();
+    }
+
+    public static void loadOfficialData() throws Exception { //load game result data back to results arraylist
         File f = new File("Official.txt");
         Scanner sc = new Scanner(f);
 
@@ -174,27 +190,25 @@ public class DataStructure {
             String name = sc.next();
             int age = sc.nextInt();
             String state = sc.next();
-            DataStructure.getOfficialArrayList().add(new Official(ID,name,age,state));
+            officialArrayList.add(new Official(ID,name,age,state));
 
         }
         sc.close();
     }
 
-    public static void loadGame() throws FileNotFoundException { //load game result data back to results arraylist
+    public static void loadGame() throws Exception { //load game result data back to results arraylist
         File f = new File("Games.txt");
         Scanner sc = new Scanner(f);
 
         while (sc.hasNext()){ //while the file still has next line
             String ID = sc.next();
             String type = sc.next();
-
-            DataStructure.getGameArrayList().add(new Game(ID,type));
-
+            gameArrayList.add(new Game(ID,type));
         }
         sc.close();
     }
 
-    public static void loadResultData() throws FileNotFoundException { //load game result data back to results arraylist
+    public static void loadResultData() throws Exception { //load game result data back to results arraylist
         File f = new File("Results.txt");
         Scanner sc = new Scanner(f);
 
@@ -207,13 +221,13 @@ public class DataStructure {
             String thirdPlace = sc.next();
             String officialID = sc.next();
 
-            DataStructure.getResultArrayList().add(new Results(gameID, gameType, firstPlace, secondPlace, thirdPlace, officialID));
+            resultsArrayList.add(new Results(gameID, gameType, firstPlace, secondPlace, thirdPlace, officialID));
 
         }
         sc.close();
     }
 
-    public static void loadAthleteData() throws IOException {
+    public static void loadAthleteData() throws Exception {
 
         File f = new File("Athlete.txt"); //need to change file path for mac
         Scanner sc = new Scanner(f);
@@ -229,33 +243,23 @@ public class DataStructure {
 
             //If data belongs to Cyclist
             if (ability.equalsIgnoreCase("Cyclist")) {
-                DataStructure.getAthleteArrayList().add(new Cyclist(ID, name, age, state, ability, points));
+                athleteArrayList.add(new Cyclist(ID, name, age, state, ability, points));
             }
             //If data belongs to Runner
             else if (ability.equalsIgnoreCase("Runner")){
-                DataStructure.getAthleteArrayList().add(new Runner(ID, name, age, state, ability, points));
+                athleteArrayList.add(new Runner(ID, name, age, state, ability, points));
             }
             //If data belongs to Swimmer
             else if (ability.equalsIgnoreCase("Swimmer")){
-                DataStructure.getAthleteArrayList().add(new Swimmer(ID, name, age, state, ability, points));
+                athleteArrayList.add(new Swimmer(ID, name, age, state, ability, points));
             }
             //If data belongs to Super Athlete
             else {
-                DataStructure.getAthleteArrayList().add(new SuperAthlete(ID, name, age, state, ability, points));
+                athleteArrayList.add(new SuperAthlete(ID, name, age, state, ability, points));
             }
         }
         sc.close();
     }
-
-    // do not use it again, find the new way to do this!!!
-//    public ObservableList<Athlete> getAthleteObservableList() {
-//        return athleteObservableList;
-//    }
-
-    /**
-     * loading athletes
-     *
-     */
 
 
     /**
@@ -264,11 +268,11 @@ public class DataStructure {
      * @return
      */
 
-    public static void initialize() throws IOException{
+    public static void initialize() throws Exception{
         try {
             System.out.println("Find files, load data from files.");
             loadfiles();
-        } catch(IOException ioe) {
+        } catch(Exception e) {
             System.out.println("Don't find files, load data from data Structure.");
             addAthletes();
             setOfficial();
@@ -276,11 +280,20 @@ public class DataStructure {
         }
     }
 
+    private static void loadfiles() throws Exception { //method to load all saved data
+        loadResultData();
+        loadAthleteData();
+        loadOfficialData();
+        loadGame();
+        loadCompeteResultsData();
+        System.out.println("Data loaded successfully ");
+    }
+
     private static void setGame() {
         gameArrayList.add(new Game("G00",null));
     }
 
-    public static void addAthletes(){
+    private static void addAthletes(){
         athleteArrayList.add(new Cyclist("C01","Cyc01",25,"VIC","Cyclist",0));
         athleteArrayList.add(new Cyclist("C02","Cyc02",25,"VIC","Cyclist",0));
         athleteArrayList.add(new Cyclist("C03","Cyc03",25,"VIC","Cyclist",0));
@@ -311,7 +324,7 @@ public class DataStructure {
         athleteArrayList.add(new SuperAthlete("SA04","Sup04",22,"VIC","Super",0));
     }
 
-    public static void setOfficial(){
+    private static void setOfficial(){
         Official official1 = new Official("OF01","Official01",50,"VIC");
         Official official2 = new Official("OF02","Official02",52,"VIC");
         Official official3 = new Official("OF03","Official03",54, "VIC");

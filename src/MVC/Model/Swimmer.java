@@ -19,12 +19,16 @@ public class Swimmer extends Athlete {
     }
 
 
-    public int compete(String gameType) {
+    public void compete(String gameType) {
 
         int min = 100;  //min result in seconds
         int max = 200;  //max result in seconds
         Random random =  new Random();
         result = random.nextInt(max - min + 1) + min;//provides a number between 100 seconds to 200 second
+//        return result;
+    }
+
+    public int getResult() {
         return result;
     }
 }
