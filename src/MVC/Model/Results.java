@@ -18,13 +18,15 @@ public class Results {
     private final int THIRDPLACEPOINT = 1;
     private final int SECONDPLACEPOINT = 2;
     private final int FIRSTPLACEPOINT = 5;
+
     private String firstID; //variable to hold first place ID
     private String secondID; //variable to hold second place ID
     private String thirdID; //variable to hold third place ID
-    private Official official;//Passing the official object
     private String gameType;
     private String gameID;
     private String offcialID;
+
+    private Official official;//Passing the official object
     private Game game;
     private ObservableList<Athlete> athleteObservableList;
     private ObservableList<Results> resultsObservableList = FXCollections.observableArrayList();
@@ -37,7 +39,7 @@ public class Results {
         this.official = official;
     }
 
-    public void setWiner() {
+    public void setWinner() {
         Collections.sort(athleteObservableList,(o1, o2)->o1.getResult() - o2.getResult());
         gameID = game.getGameID();
         gameType = game.getGameType();
@@ -50,16 +52,16 @@ public class Results {
         athleteObservableList.get(2).setAthleteScore(THIRDPLACEPOINT);
     }
 
-    // TODO: 2017/10/11 load to GUI
 
 
-    public Results(String gameID, String gameType, String firstID, String secondID, String thirdID, String officialID) { //result constructor to load data back in
+    public Results(String gameID, String gameType, String officialID,String firstID, String secondID, String thirdID) { //result constructor to load data back in
         this.gameID = gameID;
         this.gameType = gameType;
+        this.offcialID = officialID;
         this.firstID = firstID;
         this.secondID = secondID;
         this.thirdID = thirdID;
-        this.offcialID = officialID;
+
     }
 
     public String getFirstID() {
@@ -78,7 +80,7 @@ public class Results {
         return gameID;
     }
 
-    public String getOffcialID() {
+    public String getOfficialID() {
         return offcialID;
     }
 
@@ -86,25 +88,25 @@ public class Results {
         return gameType;
     }
 
-    public void setGame(Game game) {
-        this.game = game;
-    }
-
-    public void setOfficial(Official official){
-        this.official = official;
-    }
+//    public void setGame(Game game) {
+//        this.game = game;
+//    }
+//
+//    public void setOfficial(Official official){
+//        this.official = official;
+//    }
 
     public String toString() { //To string to save file
         return  gameID +
                 " " + gameType +
+                " " + offcialID +
                 " " + firstID +
                 " " + secondID +
-                " " + thirdID +
-                " " + offcialID;
+                " " + thirdID;
     }
 
     public ObservableList<Results> getResultsObservableList() {
-        resultsObservableList.add(new Results(gameID,gameType,firstID,secondID,thirdID,offcialID));
+        resultsObservableList.add(new Results(gameID,gameType,offcialID,firstID,secondID,thirdID));
         return resultsObservableList;
     }
 

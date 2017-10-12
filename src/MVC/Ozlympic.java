@@ -19,10 +19,10 @@ import java.io.IOException;
 public class Ozlympic extends Application {
 
 //    GameController gameController = new GameController();
-//    DataStructure dataStructure = new DataStructure();
+static DataStructure dataStructure = new DataStructure();
 
     public static void main(String[] args) throws Exception {
-        DataStructure.initialize();
+        dataStructure.initialize();
         launch(args);
     }
 
@@ -42,6 +42,7 @@ public class Ozlympic extends Application {
             System.out.println(e);
             e.printStackTrace();
         }
+
         primaryStage.show();
     }
 

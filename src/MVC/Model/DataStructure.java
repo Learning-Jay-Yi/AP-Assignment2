@@ -191,7 +191,6 @@ public class DataStructure {
             int age = sc.nextInt();
             String state = sc.next();
             officialArrayList.add(new Official(ID,name,age,state));
-
         }
         sc.close();
     }
@@ -216,12 +215,13 @@ public class DataStructure {
 
             String gameID = sc.next();
             String gameType = sc.next();
+            String officialID = sc.next();
             String firstPlace = sc.next();
             String secondPlace = sc.next();
             String thirdPlace = sc.next();
-            String officialID = sc.next();
 
-            resultsArrayList.add(new Results(gameID, gameType, firstPlace, secondPlace, thirdPlace, officialID));
+
+            resultsArrayList.add(new Results(gameID, gameType,  officialID, firstPlace, secondPlace, thirdPlace));
 
         }
         sc.close();
@@ -270,23 +270,29 @@ public class DataStructure {
 
     public static void initialize() throws Exception{
         try {
-            System.out.println("Find files, load data from files.");
             loadfiles();
         } catch(Exception e) {
+
+            System.out.println(e);
+        }
+    }
+
+    private static void loadfiles() throws Exception { //method to load all saved data
+        try{
+            System.out.println("Finding files");
+            loadResultData();
+            loadAthleteData();
+            loadOfficialData();
+            loadGame();
+            loadCompeteResultsData();
+            System.out.println("Data loaded successfully ");
+        }catch (Exception e){
+            System.out.println(e);
             System.out.println("Don't find files, load data from data Structure.");
             addAthletes();
             setOfficial();
             setGame();
         }
-    }
-
-    private static void loadfiles() throws Exception { //method to load all saved data
-        loadResultData();
-        loadAthleteData();
-        loadOfficialData();
-        loadGame();
-        loadCompeteResultsData();
-        System.out.println("Data loaded successfully ");
     }
 
     private static void setGame() {

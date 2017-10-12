@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.101" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MVC.Control.GameController">
+<BorderPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.101" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MVC.Control.GameController">
    <center>
       <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
         <tabs>
@@ -115,6 +115,13 @@
                                       </columns>
                                     </TableView>
                                  </center>
+                                 <top>
+                                    <Label fx:id="lbLastGameInfo" text="Latest game result" BorderPane.alignment="CENTER">
+                                       <font>
+                                          <Font name="Times New Roman" size="24.0" />
+                                       </font>
+                                    </Label>
+                                 </top>
                               </BorderPane>
                           </items>
                         </SplitPane>
@@ -125,12 +132,12 @@
                               <Button fx:id="btResultNewGame" mnemonicParsing="false" onAction="#btResultNewGameClick" prefHeight="30.0" text="New Game" BorderPane.alignment="CENTER" />
                            </left>
                            <right>
-                              <Button fx:id="btCompete" mnemonicParsing="false" onAction="#btCompeteClick" prefHeight="30.0" text="Compete again" BorderPane.alignment="CENTER" />
+                              <Button fx:id="btCompete" disable="true" mnemonicParsing="false" onAction="#btCompeteClick" prefHeight="30.0" text="Compete again" BorderPane.alignment="CENTER" />
                            </right>
                         </BorderPane>
                      </bottom>
                      <top>
-                        <Label fx:id="lbResultInfo" text="Game have unique ID and refer from one official" BorderPane.alignment="CENTER">
+                        <Label fx:id="lbResultInfo" text="Game result history" BorderPane.alignment="CENTER">
                            <font>
                               <Font name="Times New Roman" size="24.0" />
                            </font>
@@ -154,7 +161,7 @@
                         </TableView>
                      </center>
                      <top>
-                        <Label fx:id="lbSoresInfo" text="Athlete's scroe will increase by each game" BorderPane.alignment="CENTER">
+                        <Label fx:id="lbSoresInfo" text="Athlete's points" BorderPane.alignment="CENTER">
                            <font>
                               <Font name="Times New Roman" size="24.0" />
                            </font>

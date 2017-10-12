@@ -1,6 +1,7 @@
-G25 R07 Run07 Runner 10
-G25 SA01 Sup01 Super 11
-G25 SA03 Sup03 Super 11
-G25 R05 Run05 Runner 15
-G25 SA02 Sup02 Super 18
-G25 R06 Run06 Runner 19
+G05 SA02 Sup02 Super 11
+G05 R07 Run07 Runner 12
+G05 R04 Run04 Runner 13
+G05 SA01 Sup01 Super 13
+G05 R05 Run05 Runner 15
+G05 SA03 Sup03 Super 17
+G05 R06 Run06 Runner 20

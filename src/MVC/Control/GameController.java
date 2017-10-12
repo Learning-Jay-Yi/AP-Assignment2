@@ -11,19 +11,16 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.CheckBoxTableCell;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
-import javax.swing.*;
-import java.io.*;
-import java.util.ArrayList;
+
 import java.util.Random;
-import java.util.Scanner;
+
 
 
 public class GameController {
     Game game;
-//    Driver driver;
-//    GameProcess gameProcess;
 
     String gameID;
     String gameType;
@@ -31,18 +28,14 @@ public class GameController {
     Results results;
     CompeteResult competeResult;
 
-//    private DataStructure dataStructure; // = new DataStructure();
-
-
-    private ObservableList<Athlete> athleteData = DataStructure.getAthleteArrayList(); //FXCollections.observableArrayList();
-
+    // load athlete's data from file or data structure
+    private ObservableList<Athlete> athleteData = DataStructure.getAthleteArrayList();
+    // load game's data from file or data structure
     private ObservableList<Game> gamesData = DataStructure.getGameArrayList();
 
     private ObservableList<Official> officialsData = DataStructure.getOfficialArrayList();
 
     private ObservableList<Results> resultsData = DataStructure.getResultArrayList();
-
-//    private ObservableList<Results> resultsHistoryData = FXCollections.observableArrayList();
 
     private ObservableList<Athlete> preAthleteData = FXCollections.observableArrayList();
 
@@ -51,11 +44,8 @@ public class GameController {
     private ObservableList<CompeteResult> competeResultsData = DataStructure.getCompeteResultArrayList();
 
 
-
-
-
-
-
+    @FXML
+    private BorderPane rootPane;
 
     @FXML // fx:id="tabGame"
     private Tab tabGame; // Value injected by FXMLLoader
@@ -148,7 +138,7 @@ public class GameController {
     private Button btResultNewGame; // Value injected by FXMLLoader
 
     @FXML // fx:id="btCompete"
-    private Button btCompeteClick; // Value injected by FXMLLoader
+    private Button btCompete; // Value injected by FXMLLoader
 
     @FXML // fx:id="lbResultInfo"
     private Label lbResultInfo; // Value injected by FXMLLoader
@@ -188,48 +178,69 @@ public class GameController {
 
     @FXML
     void btCyclingClick(ActionEvent event) {
-        for (Athlete a: preAthleteData){
-            if (a.isChecked()){
-                a.checkProperty().set(false);
-            }
-        }
-        preAthleteData.clear();
-        participantData.clear();
+        reSetCheckBox();
+        reSetParticipantData();
+
+        lbGameInfo.setText("This is Cycling game\nPlease select participants to compete.");
 
         gameType = "Cycling";
         preAthlete(athleteData);
         displayAthlete();
-        enable();
+        enableBt();
     }
 
     @FXML
     void btGameExitClick(ActionEvent event) throws Exception {
-        saveData();
-        Alert alert = new Alert(Alert.AlertType.INFORMATION,"Data will save to files!\nEasy mark, thank you.", ButtonType.OK);
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION,"Are your sure to quit?", ButtonType.YES,ButtonType.NO);
         alert.showAndWait();
-        Stage stage = (Stage) btGameExit.getScene().getWindow();
-        stage.close();
+
+        if (alert.getResult() == ButtonType.YES){
+            saveData();
+            Alert thanks = new Alert(Alert.AlertType.INFORMATION,"Data saved to files\nEasy mark, Thank you.",ButtonType.OK);
+            thanks.showAndWait();
+            Stage stage = (Stage) btGameExit.getScene().getWindow();
+            stage.close();
+        }
+
     }
 
 
 
     @FXML
-    void btCompeteClick(ActionEvent event) {
+    void btCompeteClick(ActionEvent event) throws Exception {
+        setGame();
+        startGame();
+        setWinner();
 
+        Alert alert = new Alert(Alert.AlertType.INFORMATION,"Compete successful!",ButtonType.OK);
+        alert.showAndWait();
+
+        refreshTables();
     }
 
     @FXML
-    void btQuitGameClick(ActionEvent event) {
-
+    void btQuitGameClick(ActionEvent event) throws Exception {
+        btGameExitClick(event);
     }
 
     @FXML
     void btResetClick(ActionEvent event) {
+        reSetCheckBox();
+        reSetParticipantData();
+
+        btRun.setDisable(true);
+        btCompete.setDisable(true);
+        btReset.setDisable(true);
+
+        initialize();
+        lbGameInfo.setText("Select a game above to start the game");
 
     }
 
     @FXML
     void btResultNewGameClick(ActionEvent event) {
+        btResetClick(event);
+        tabGame.getTabPane().getSelectionModel().select(tabGame);
 
     }
 
@@ -271,72 +282,55 @@ public class GameController {
             competeResultsData.clear();
             setGame();
             startGame();
-            Alert alert = new Alert(Alert.AlertType.INFORMATION,"Results collected",ButtonType.OK);
+            setWinner();
+            Alert alert = new Alert(Alert.AlertType.INFORMATION,"Compete successful!\nPlease refer to 'Result Tab'",ButtonType.OK);
             alert.showAndWait();
+
+            refreshTables();
+
+            lbGameInfo.setText("Compete successful!\nPlease refer to 'Result Tab'");
+
             btRun.setDisable(true);
             btReset.setDisable(true);
-
-            DataStructure.saveCompeteResults(competeResultsData);
-
-            setWinner();
-            dislayResultHistoryTable();
-            displayCompeteResultTable();
-            displayScore();
-
+            athleteTable.setDisable(true);
+            btCompete.setDisable(false);
+            reSetCheckBox();
         }
     }
+
 
 
     @FXML
     void btRunningClick(ActionEvent event) {
-        for (Athlete a: preAthleteData){
-            if (a.isChecked()){
-                a.checkProperty().set(false);
-            }
-        }
-        preAthleteData.clear();
-        participantData.clear();
+        reSetCheckBox();
+        reSetParticipantData();
+
+        lbGameInfo.setText("This is Running game\nPlease select participants to compete.");
 
         gameType = "Running";
         preAthlete(athleteData);
         displayAthlete();
-        enable();
+        enableBt();
     }
 
     @FXML
     void btScoreNewGameClick(ActionEvent event) {
-
+        btResetClick(event);
+        tabGame.getTabPane().getSelectionModel().select(tabGame);
     }
 
     @FXML
     void btSwimmingClick(ActionEvent event) {
-        for (Athlete a: preAthleteData){
-            if (a.isChecked()){
-                a.checkProperty().set(false);
-            }
-        }
-        preAthleteData.clear();
-        participantData.clear();
+        reSetCheckBox();
+        reSetParticipantData();
+
+        lbGameInfo.setText("This is Swimming game\nPlease select participants to compete.");
 
         gameType = "Swimming";
         preAthlete(athleteData);
         displayAthlete();
-        enable();
+        enableBt();
     }
-
-    private void enable() {
-        athleteTable.setDisable(false);
-        btRun.setDisable(false);
-        btReset.setDisable(false);
-    }
-
-
-
-    /**
-     * new functions
-     *
-     */
-
 
 
 
@@ -356,26 +350,17 @@ public class GameController {
         athleteTable.setItems(athleteData);
         athleteTable.setDisable(true);
         athleteTable.setEditable(false);
-//
-//        resultHistoryTableGameIDCol.setCellValueFactory(cellData -> cellData.getValue().gameIdProperty());
-//        resultHistoryTableGameTypeCol.setCellValueFactory(cellData -> cellData.getValue().gameTypeProperty());
-//        resultHistoryTableOfficialIDCol.setCellValueFactory(cellData -> cellData.getValue().officialIdProperty());
-//        resultHistoryTableFirstPlaceCol.setCellValueFactory(cellData -> cellData.getValue().firstPlaceProperty());
-//        resultHistoryTableSecondPlaceCol.setCellValueFactory(cellData -> cellData.getValue().secondPlaceProperty());
-//        resultHistoryTableThirdPlaceCol.setCellValueFactory(cellData -> cellData.getValue().thirdPlaceProperty());
-//
-//        resultHistoryTable.setItems(resultsData);
 
         dislayResultHistoryTable();
         displayCompeteResultTable();
         displayScore();
-
     }
 
     /**
      * new function to load data to table
      *
      */
+
     @FXML
     public void displayAthlete() {
 
@@ -392,8 +377,8 @@ public class GameController {
         athleteTable.setDisable(false);
         athleteTable.setEditable(true);
 
-    }
 
+    }
     @FXML
     public void displayCompeteResultTable(){
         resultTableGameIDCol.setCellValueFactory(cellData -> cellData.getValue().resultGameIDProperty());
@@ -404,7 +389,6 @@ public class GameController {
 
         competeResultTable.setItems(competeResultsData);
     }
-
     @FXML
     public void displayScore(){
 
@@ -417,9 +401,11 @@ public class GameController {
 
         scoreTable.setItems(athleteData);
 
+
+
     }
 
-
+    @FXML
     public void dislayResultHistoryTable (){
         resultHistoryTableGameIDCol.setCellValueFactory(cellData -> cellData.getValue().gameIdProperty());
         resultHistoryTableGameTypeCol.setCellValueFactory(cellData -> cellData.getValue().gameTypeProperty());
@@ -430,7 +416,6 @@ public class GameController {
 
         resultHistoryTable.setItems(resultsData);
     }
-
 
     private ObservableList<Athlete> preAthlete(ObservableList<Athlete> athleteData) {
 //        ObservableList<Athlete> preAthleteData = FXCollections.observableArrayList();
@@ -465,6 +450,7 @@ public class GameController {
      * selected athletes
      */
 
+
     public ObservableList<Athlete> selectedAthletes() {
         for (Athlete a : preAthleteData)
         {
@@ -481,11 +467,13 @@ public class GameController {
      * save data
      */
 
+
     private void saveData() throws Exception {
         DataStructure.saveAthleteData(athleteData);
         DataStructure.saveCompeteResults(competeResultsData);
         DataStructure.saveResultData(resultsData);
         DataStructure.saveGame(gamesData);
+        DataStructure.saveOfficialData(officialsData);
     }
 
     /**
@@ -508,31 +496,55 @@ public class GameController {
     private void startGame() {
         competeResult = new CompeteResult(game,participantData);
         competeResult.getCompeteResults();
-        competeResultsData = competeResult.getCompeteResultObservableList();
-
+        competeResultsData.clear();
+        // renew Compete Results Data
+        for (CompeteResult c : competeResult.getCompeteResultObservableList())
+            competeResultsData.add(c);
     }
 
     private void setWinner() throws Exception {
         results = new Results(game,participantData,official());
-        results.setWiner();
-//        results.getResultsObservableList();
+        results.setWinner();
         resultsData.add(
                 new Results(
                         results.getGameID(),
                         results.getGameType(),
-                        results.getOffcialID(),
+                        results.getOfficialID(),
                         results.getFirstID(),
                         results.getSecondID(),
                         results.getThirdID()
                 )
         );
-        DataStructure.saveResultData(resultsData);
+//        DataStructure.saveResultData(resultsData);
 
     }
 
     private Official official() {
-        Random rundom = new Random();
-        int index = rundom.nextInt(3);
+        Random random = new Random();
+        int index = random.nextInt(4);
         return officialsData.get(index);
+    }
+
+    private void reSetCheckBox(){
+        for (Athlete a: preAthleteData)
+            if (a.isChecked())
+                a.checkProperty().set(false);
+    }
+
+    private void reSetParticipantData(){
+        preAthleteData.clear();
+        participantData.clear();
+    }
+
+    private void refreshTables() {
+        scoreTable.refresh();
+        competeResultTable.refresh();
+        resultHistoryTable.refresh();
+    }
+
+    private void enableBt() {
+        athleteTable.setDisable(false);
+        btRun.setDisable(false);
+        btReset.setDisable(false);
     }
 }

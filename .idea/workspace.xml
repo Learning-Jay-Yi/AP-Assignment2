@@ -3,7 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="9f1407a2-859f-444f-ae77-d7da8bcf59e4" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AP-Assignment2/MVC/Control/GameController.class" afterPath="$PROJECT_DIR$/out/production/AP-Assignment2/MVC/Control/GameController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AP-Assignment2/MVC/Model/DataStructure.class" afterPath="$PROJECT_DIR$/out/production/AP-Assignment2/MVC/Model/DataStructure.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AP-Assignment2/MVC/Model/Results.class" afterPath="$PROJECT_DIR$/out/production/AP-Assignment2/MVC/Model/Results.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AP-Assignment2/MVC/Ozlympic.class" afterPath="$PROJECT_DIR$/out/production/AP-Assignment2/MVC/Ozlympic.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Athlete.txt" afterPath="$PROJECT_DIR$/Athlete.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CompeteResults.txt" afterPath="$PROJECT_DIR$/CompeteResults.txt" />
@@ -11,6 +13,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results.txt" afterPath="$PROJECT_DIR$/Results.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AP-Assignment2/MVC/View/View.fxml" afterPath="$PROJECT_DIR$/out/production/AP-Assignment2/MVC/View/View.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MVC/Control/GameController.java" afterPath="$PROJECT_DIR$/src/MVC/Control/GameController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MVC/Model/DataStructure.java" afterPath="$PROJECT_DIR$/src/MVC/Model/DataStructure.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MVC/Model/Results.java" afterPath="$PROJECT_DIR$/src/MVC/Model/Results.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MVC/Ozlympic.java" afterPath="$PROJECT_DIR$/src/MVC/Ozlympic.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MVC/View/View.fxml" afterPath="$PROJECT_DIR$/src/MVC/View/View.fxml" />
@@ -31,8 +34,8 @@
       <file leaf-file-name="Ozlympic.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/MVC/Ozlympic.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="265">
-              <caret line="43" column="9" lean-forward="false" selection-start-line="43" selection-start-column="9" selection-end-line="43" selection-end-column="9" />
+            <state relative-caret-position="195">
+              <caret line="26" column="5" lean-forward="true" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -41,8 +44,8 @@
       <file leaf-file-name="GameController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/MVC/Control/GameController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="71">
-              <caret line="358" column="0" lean-forward="false" selection-start-line="358" selection-start-column="0" selection-end-line="366" selection-end-column="51" />
+            <state relative-caret-position="253">
+              <caret line="543" column="0" lean-forward="true" selection-start-line="543" selection-start-column="0" selection-end-line="543" selection-end-column="0" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
                 <element signature="imports" expanded="true" />
@@ -51,64 +54,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Results.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/MVC/Model/Results.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="325">
-              <caret line="113" column="89" lean-forward="false" selection-start-line="113" selection-start-column="89" selection-end-line="113" selection-end-column="89" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="View.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/MVC/View/View.fxml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="163">
-              <caret line="94" column="47" lean-forward="true" selection-start-line="94" selection-start-column="47" selection-end-line="94" selection-end-column="47" />
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="JavaFX-Scene-Builder">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Driver.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/MVC/Control/Driver.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="149">
-              <caret line="30" column="34" lean-forward="false" selection-start-line="30" selection-start-column="26" selection-end-line="30" selection-end-column="34" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Games.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Games.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="4" lean-forward="false" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="4" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CompeteResults.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CompeteResults.txt">
+      <file leaf-file-name="Results.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Results.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Athlete.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Athlete.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="25" lean-forward="false" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -118,17 +68,77 @@
         <entry file="file://$PROJECT_DIR$/Official.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
-              <caret line="0" column="20" lean-forward="false" selection-start-line="0" selection-start-column="20" selection-end-line="0" selection-end-column="20" />
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Results.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Results.txt">
+      <file leaf-file-name="Games.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Games.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
-              <caret line="0" column="29" lean-forward="false" selection-start-line="0" selection-start-column="29" selection-end-line="0" selection-end-column="29" />
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CompeteResults.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CompeteResults.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="27" lean-forward="false" selection-start-line="0" selection-start-column="27" selection-end-line="0" selection-end-column="27" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Athlete.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Athlete.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="330">
+              <caret line="22" column="25" lean-forward="true" selection-start-line="22" selection-start-column="25" selection-end-line="22" selection-end-column="25" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CompeteResult.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/MVC/Model/CompeteResult.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="265">
+              <caret line="110" column="0" lean-forward="false" selection-start-line="110" selection-start-column="0" selection-end-line="110" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DataStructure.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/MVC/Model/DataStructure.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="19" column="5" lean-forward="true" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1705#1706#0" expanded="true" />
+                <element signature="e#1744#1745#0" expanded="true" />
+                <element signature="method#setOfficial#0;class#DataStructure#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="View.fxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/MVC/View/View.fxml">
+          <provider editor-type-id="JavaFX-Scene-Builder">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="12" column="190" lean-forward="false" selection-start-line="12" selection-start-column="190" selection-end-line="12" selection-end-column="190" />
               <folding />
             </state>
           </provider>
@@ -146,9 +156,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>botSecondLayer</find>
-      <find>btAddc</find>
-      <find>Swimming</find>
       <find>createTabCycling</find>
       <find>lab</find>
       <find>close</find>
@@ -170,6 +177,15 @@
       <find>official</find>
       <find>resultHistoryTableGameIDCol</find>
       <find>officialTableGameIDCol</find>
+      <find>static</find>
+      <find>competec</find>
+      <find>resultHis</find>
+      <find>lb</find>
+      <find>btRun</find>
+      <find>result</find>
+      <find>save</find>
+      <find>reset</find>
+      <find>btcom</find>
     </findStrings>
     <replaceStrings>
       <replace>botSecondLayerLeft</replace>
@@ -217,11 +233,9 @@
         <option value="$PROJECT_DIR$/src/MVC/Driver.java" />
         <option value="$PROJECT_DIR$/src/MVC/Control/Driver.java" />
         <option value="$PROJECT_DIR$/src/MVC/Control/GameProcess.java" />
-        <option value="$PROJECT_DIR$/Official.txt" />
         <option value="$PROJECT_DIR$/src/MVC/Model/Participant.java" />
         <option value="$PROJECT_DIR$/src/MVC/Model/Official.java" />
         <option value="$PROJECT_DIR$/src/MVC/Control/ProcessResults.java" />
-        <option value="$PROJECT_DIR$/Athlete.txt" />
         <option value="$PROJECT_DIR$/src/MVC/Model/Cyclist.java" />
         <option value="$PROJECT_DIR$/src/MVC/Model/Runner.java" />
         <option value="$PROJECT_DIR$/src/MVC/Model/SuperAthlete.java" />
@@ -230,14 +244,17 @@
         <option value="$PROJECT_DIR$/src/MVC/Model/ProcessResults.java" />
         <option value="$PROJECT_DIR$/src/MVC/Model/ComparatorResult.java" />
         <option value="$PROJECT_DIR$/src/MVC/Model/CompeteResult.java" />
-        <option value="$PROJECT_DIR$/src/MVC/Model/DataStructure.java" />
         <option value="$PROJECT_DIR$/src/MVC/Model/Game.java" />
         <option value="$PROJECT_DIR$/Games.txt" />
-        <option value="$PROJECT_DIR$/src/MVC/View/View.fxml" />
+        <option value="$PROJECT_DIR$/Official.txt" />
         <option value="$PROJECT_DIR$/src/MVC/Ozlympic.java" />
+        <option value="$PROJECT_DIR$/src/MVC/Model/DataStructure.java" />
         <option value="$PROJECT_DIR$/src/MVC/Model/Results.java" />
         <option value="$PROJECT_DIR$/Results.txt" />
+        <option value="$PROJECT_DIR$/CompeteResults.txt" />
+        <option value="$PROJECT_DIR$/Athlete.txt" />
         <option value="$PROJECT_DIR$/src/MVC/Control/GameController.java" />
+        <option value="$PROJECT_DIR$/src/MVC/View/View.fxml" />
       </list>
     </option>
   </component>
@@ -268,9 +285,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="AndroidView" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -310,20 +327,11 @@
               <item name="MVC" type="462c0819:PsiDirectoryNode" />
               <item name="View" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="AP-Assignment2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-            </path>
-            <path>
-              <item name="AP-Assignment2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; 1.8 &gt;" type="70bed36:NamedLibraryElementNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -593,12 +601,13 @@
       <workItem from="1507591098046" duration="51780000" />
       <workItem from="1507686959031" duration="9035000" />
       <workItem from="1507696158420" duration="73000" />
-      <workItem from="1507700716986" duration="5721000" />
+      <workItem from="1507700716986" duration="10416000" />
+      <workItem from="1507713787714" duration="12175000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="155139000" />
+    <option name="totallyTimeSpent" value="172009000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -621,25 +630,25 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36503857" sideWeight="0.5171674" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32904884" sideWeight="0.4914163" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32904884" sideWeight="0.48569384" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32904884" sideWeight="0.4914163" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36503857" sideWeight="0.4828326" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17596567" sideWeight="0.49233717" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17811158" sideWeight="0.49233717" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32904884" sideWeight="0.49427754" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24964234" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31876606" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27110156" sideWeight="0.50766283" order="5" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31876606" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32904884" sideWeight="0.49427754" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -686,95 +695,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/MVC/Model/DataStructure.java</url>
-          <line>103</line>
-          <properties />
-          <option name="timeStamp" value="164" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/MVC/Model/DataStructure.java</url>
-          <line>105</line>
-          <properties />
-          <option name="timeStamp" value="165" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/MVC/Model/DataStructure.java</url>
-          <line>107</line>
-          <properties />
-          <option name="timeStamp" value="166" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/MVC/Model/DataStructure.java</url>
-          <line>106</line>
-          <properties />
-          <option name="timeStamp" value="167" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/MVC/Model/DataStructure.java</url>
-          <line>108</line>
-          <properties />
-          <option name="timeStamp" value="168" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/MVC/Model/DataStructure.java</url>
-          <line>109</line>
-          <properties />
-          <option name="timeStamp" value="169" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/MVC/Model/DataStructure.java</url>
-          <line>110</line>
-          <properties />
-          <option name="timeStamp" value="170" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/MVC/Model/DataStructure.java</url>
-          <line>112</line>
-          <properties />
-          <option name="timeStamp" value="171" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/MVC/Model/DataStructure.java</url>
-          <line>111</line>
-          <properties />
-          <option name="timeStamp" value="172" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/MVC/Model/DataStructure.java</url>
-          <line>113</line>
-          <properties />
-          <option name="timeStamp" value="173" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/MVC/Model/DataStructure.java</url>
-          <line>101</line>
-          <properties />
-          <option name="timeStamp" value="174" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/MVC/Model/DataStructure.java</url>
-          <line>102</line>
-          <properties />
-          <option name="timeStamp" value="175" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/MVC/Control/GameController.java</url>
-          <line>296</line>
-          <properties />
-          <option name="timeStamp" value="178" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/MVC/Model/DataStructure.java</url>
-          <line>100</line>
-          <properties class="MVC.Model.DataStructure" method="saveResultData">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="161" />
-        </line-breakpoint>
-      </breakpoints>
-      <option name="time" value="179" />
+      <option name="time" value="211" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -898,16 +819,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MVC/Model/ProcessResults.java" />
     <entry file="file://$PROJECT_DIR$/src/MVC/Model/ComparatorResult.java" />
-    <entry file="file://$PROJECT_DIR$/src/MVC/Model/CompeteResult.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" column="29" lean-forward="false" selection-start-line="27" selection-start-column="29" selection-end-line="27" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/MVC/Model/Game.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="540">
@@ -943,36 +854,62 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/MVC/Model/DataStructure.java">
+    <entry file="file://$PROJECT_DIR$/src/MVC/Control/Driver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="113" column="0" lean-forward="false" selection-start-line="113" selection-start-column="0" selection-end-line="113" selection-end-column="0" />
+        <state relative-caret-position="450">
+          <caret line="30" column="34" lean-forward="false" selection-start-line="30" selection-start-column="26" selection-end-line="30" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MVC/Model/Results.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1067">
+          <caret line="103" column="18" lean-forward="false" selection-start-line="103" selection-start-column="18" selection-end-line="103" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MVC/Ozlympic.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="26" column="5" lean-forward="true" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MVC/Model/CompeteResult.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="265">
+          <caret line="110" column="0" lean-forward="false" selection-start-line="110" selection-start-column="0" selection-end-line="110" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#saveAthleteData#0;class#DataStructure#0" expanded="false" />
-            <element signature="method#saveOfficialData#0;class#DataStructure#0" expanded="false" />
-            <element signature="method#saveGame#0;class#DataStructure#0" expanded="false" />
-            <element signature="method#loadCompeteResultsData#0;class#DataStructure#0" expanded="false" />
-            <element signature="method#loadOfficialData#0;class#DataStructure#0" expanded="false" />
-            <element signature="method#loadGame#0;class#DataStructure#0" expanded="false" />
-            <element signature="method#loadResultData#0;class#DataStructure#0" expanded="false" />
-            <element signature="method#loadAthleteData#0;class#DataStructure#0" expanded="false" />
-            <element signature="method#loadfiles#0;class#DataStructure#0" expanded="false" />
-            <element signature="method#addAthletes#0;class#DataStructure#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MVC/Model/DataStructure.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="5" lean-forward="true" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1705#1706#0" expanded="true" />
+            <element signature="e#1744#1745#0" expanded="true" />
             <element signature="method#setOfficial#0;class#DataStructure#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Athlete.txt">
+    <entry file="file://$PROJECT_DIR$/Results.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="25" lean-forward="false" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CompeteResults.txt">
+    <entry file="file://$PROJECT_DIR$/Official.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -982,67 +919,43 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Games.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="4" lean-forward="false" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="4" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Official.txt">
+    <entry file="file://$PROJECT_DIR$/CompeteResults.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="20" lean-forward="false" selection-start-line="0" selection-start-column="20" selection-end-line="0" selection-end-column="20" />
+          <caret line="0" column="27" lean-forward="false" selection-start-line="0" selection-start-column="27" selection-end-line="0" selection-end-column="27" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/MVC/Ozlympic.java">
+    <entry file="file://$PROJECT_DIR$/Athlete.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="265">
-          <caret line="43" column="9" lean-forward="false" selection-start-line="43" selection-start-column="9" selection-end-line="43" selection-end-column="9" />
+        <state relative-caret-position="330">
+          <caret line="22" column="25" lean-forward="true" selection-start-line="22" selection-start-column="25" selection-end-line="22" selection-end-column="25" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MVC/View/View.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="163">
-          <caret line="94" column="47" lean-forward="true" selection-start-line="94" selection-start-column="47" selection-end-line="94" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MVC/Model/Results.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="113" column="89" lean-forward="false" selection-start-line="113" selection-start-column="89" selection-end-line="113" selection-end-column="89" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MVC/Control/Driver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="30" column="34" lean-forward="false" selection-start-line="30" selection-start-column="26" selection-end-line="30" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Results.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="29" lean-forward="false" selection-start-line="0" selection-start-column="29" selection-end-line="0" selection-end-column="29" />
+        <state relative-caret-position="180">
+          <caret line="12" column="190" lean-forward="false" selection-start-line="12" selection-start-column="190" selection-end-line="12" selection-end-column="190" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MVC/Control/GameController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="71">
-          <caret line="358" column="0" lean-forward="false" selection-start-line="358" selection-start-column="0" selection-end-line="366" selection-end-column="51" />
+        <state relative-caret-position="253">
+          <caret line="543" column="0" lean-forward="true" selection-start-line="543" selection-start-column="0" selection-end-line="543" selection-end-column="0" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="imports" expanded="true" />
