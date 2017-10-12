@@ -1,3 +1,10 @@
+/**********************************************************************************************************************
+ * Author: JIE YI
+ * Purpose: data structure for compete results
+ * Create Date: 09/10/2017
+ * Version: 2.06
+ * Update Date: 12/10/2017
+ **********************************************************************************************************************/
 package MVC.Model;
 
 import javafx.beans.property.IntegerProperty;
@@ -6,8 +13,6 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-
-import java.util.Collection;
 import java.util.Collections;
 
 

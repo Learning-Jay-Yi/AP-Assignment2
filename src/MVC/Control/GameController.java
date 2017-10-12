@@ -1,20 +1,26 @@
-/**
- * Sample Skeleton for 'View.fxml' Controller Class
- */
+/**********************************************************************************************************************
+ * Author: JIE YI
+ * Purpose: Controller for whole program
+ * Create Date: 08/10/2017
+ * Version: 2.05
+ * Update Date: 12/10/2017
+ **********************************************************************************************************************/
 
 package MVC.Control;
 
 import MVC.Model.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.ObservableMap;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.CheckBoxTableCell;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
-
-
+import java.io.File;
 import java.util.Random;
 
 
@@ -50,8 +56,8 @@ public class GameController {
     @FXML // fx:id="tabGame"
     private Tab tabGame; // Value injected by FXMLLoader
 
-    @FXML // fx:id="btSwimming"
-    private Button btSwimming; // Value injected by FXMLLoader
+//    @FXML // fx:id="btSwimming"
+//    private Button btSwimming; // Value injected by FXMLLoader
 
     @FXML // fx:id="btCycling"
     private Button btCycling; // Value injected by FXMLLoader
@@ -283,9 +289,8 @@ public class GameController {
             setGame();
             startGame();
             setWinner();
-            Alert alert = new Alert(Alert.AlertType.INFORMATION,"Compete successful!\nPlease refer to 'Result Tab'",ButtonType.OK);
-            alert.showAndWait();
 
+            processGame();
             refreshTables();
 
             lbGameInfo.setText("Compete successful!\nPlease refer to 'Result Tab'");
@@ -297,6 +302,7 @@ public class GameController {
             reSetCheckBox();
         }
     }
+
 
 
 
@@ -330,6 +336,8 @@ public class GameController {
         preAthlete(athleteData);
         displayAthlete();
         enableBt();
+//        test();
+//        transeferData();
     }
 
 
@@ -351,7 +359,7 @@ public class GameController {
         athleteTable.setDisable(true);
         athleteTable.setEditable(false);
 
-        dislayResultHistoryTable();
+        displayCompeteResultTable();
         displayCompeteResultTable();
         displayScore();
     }
@@ -406,7 +414,7 @@ public class GameController {
     }
 
     @FXML
-    public void dislayResultHistoryTable (){
+    public void displayResultHistoryTable (){
         resultHistoryTableGameIDCol.setCellValueFactory(cellData -> cellData.getValue().gameIdProperty());
         resultHistoryTableGameTypeCol.setCellValueFactory(cellData -> cellData.getValue().gameTypeProperty());
         resultHistoryTableOfficialIDCol.setCellValueFactory(cellData -> cellData.getValue().officialIdProperty());
@@ -542,9 +550,47 @@ public class GameController {
         resultHistoryTable.refresh();
     }
 
+    private void processGame() {
+        String s = gameType+".gif";
+
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        File file = new File(s);
+        Image image = new Image(file.toURI().toString());
+        ImageView imageView = new ImageView(image);
+        alert.setGraphic(imageView);
+        alert.setContentText("Compete successful!\nPlease refer to 'Result Tab'");
+        alert.setResult(ButtonType.OK);
+        alert.showAndWait();
+    }
+
     private void enableBt() {
         athleteTable.setDisable(false);
         btRun.setDisable(false);
         btReset.setDisable(false);
     }
+
+
+    /**
+     * testing
+     */
+
+//    private void test(){
+//        int size = gamesData.size();
+//        Game game = gamesData.get(size-1);
+//        DataStructure.saveCompeteData(game.getGameID(),competeResultsData);
+//    }
+//
+//    private void transeferData(){
+//        /*
+//            do what you want here
+//            such as, HashMap to list.
+//         */
+//        String gameID = gamesData.get(gamesData.size()-1).getGameID();
+//
+//        ObservableMap a = DataStructure.getCompeteData();
+//        ObservableList<CompeteResult> b;
+//
+//                //how to get value?
+//    }
+
 }

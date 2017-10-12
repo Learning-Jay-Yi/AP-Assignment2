@@ -1,7 +1,6 @@
-G05 SA02 Sup02 Super 11
-G05 R07 Run07 Runner 12
-G05 R04 Run04 Runner 13
-G05 SA01 Sup01 Super 13
-G05 R05 Run05 Runner 15
-G05 SA03 Sup03 Super 17
-G05 R06 Run06 Runner 20
+G35 S05 Swim05 Swimmer 154
+G35 S06 Swim06 Swimmer 165
+G35 S03 Swim03 Swimmer 174
+G35 S07 Swim07 Swimmer 195
+G35 SA01 Sup01 Super 197
+G35 S04 Swim04 Swimmer 200

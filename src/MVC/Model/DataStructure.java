@@ -1,10 +1,19 @@
+/**********************************************************************************************************************
+ * Author: Dario Ongsono
+ * Purpose: This class responsible for the cyclist athlete and how it process its compete method
+ * Create Date: 28/09/2017
+ * Version: 2.15
+ * Update Date: 04/10/2017
+ **********************************************************************************************************************/
+
 package MVC.Model;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.ObservableMap;
 
-import javax.swing.*;
 import java.io.*;
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class DataStructure {
@@ -15,34 +24,48 @@ public class DataStructure {
     private static ObservableList<Game> gameArrayList = FXCollections.observableArrayList();
     private static ObservableList<CompeteResult> competeResultArrayList = FXCollections.observableArrayList();
 
+    private static ObservableMap<String,ObservableList> competeData = FXCollections.observableHashMap();
+
     public DataStructure(){
 
     }
 
 
-    public void setAthleteArrayList(ObservableList<Athlete> athleteArrayList) {
-        this.athleteArrayList = athleteArrayList;
+
+
+    /**
+     * test
+     * @return
+     */
+    public static void saveCompeteData(String gameID,ObservableList<CompeteResult> data ) {
+        competeData.put(gameID, data);
+        System.out.println(competeData);
     }
 
-    public void setResultsArrayList(ObservableList<Results> resultsArrayList) {
-        this.resultsArrayList = resultsArrayList;
+    public static ObservableMap<String, ObservableList> getCompeteData() {
+        return competeData;
     }
 
-    public void setGameArrayList(ObservableList<Game> gameArrayList) {
-        this.gameArrayList = gameArrayList;
-    }
-
-    public void setOfficialArrayList(ObservableList<Official> officialArrayList) {
-        this.officialArrayList = officialArrayList;
-    }
-
-//    public void setProcessResultsArrayList(ObservableList<ProcessResults> processResultsArrayList) {
-//        this.processResultsArrayList = processResultsArrayList;
+    //
+//    public void setAthleteArrayList(ObservableList<Athlete> athleteArrayList) {
+//        this.athleteArrayList = athleteArrayList;
 //    }
-
-    public static void setCompeteResultArrayList(ObservableList<CompeteResult> competeResultArrayList) {
-        DataStructure.competeResultArrayList = competeResultArrayList;
-    }
+//
+//    public void setResultsArrayList(ObservableList<Results> resultsArrayList) {
+//        this.resultsArrayList = resultsArrayList;
+//    }
+//
+//    public void setGameArrayList(ObservableList<Game> gameArrayList) {
+//        this.gameArrayList = gameArrayList;
+//    }
+//
+//    public void setOfficialArrayList(ObservableList<Official> officialArrayList) {
+//        this.officialArrayList = officialArrayList;
+//    }
+//
+//    public static void setCompeteResultArrayList(ObservableList<CompeteResult> competeResultArrayList) {
+//        DataStructure.competeResultArrayList = competeResultArrayList;
+//    }
 
     public static ObservableList<Athlete> getAthleteArrayList() {
         return athleteArrayList;
@@ -63,17 +86,6 @@ public class DataStructure {
     public static ObservableList<CompeteResult> getCompeteResultArrayList() {
         return competeResultArrayList;
     }
-
-
-
-//    public static void savefiles() throws Exception { //method to call all save methods
-//        saveResultData();
-//        saveAthleteData();
-//        saveOfficialData();
-//        saveGame();
-//        System.out.println("Data saved successfully!");
-//    }
-
 
     /**
      * save data
