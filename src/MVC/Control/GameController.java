@@ -360,7 +360,7 @@ public class GameController {
         athleteTable.setEditable(false);
 
         displayCompeteResultTable();
-        displayCompeteResultTable();
+        displayResultHistoryTable();
         displayScore();
     }
 
